@@ -1,0 +1,27 @@
+<h2 class="title">Listado de usuarios para roles </h2>
+<div style="clear: both;">&nbsp;</div>
+<div class="entry">
+
+
+	<table class="index">
+	  <tr>
+		<th>ID</th>
+		<th>Login</th>
+		<th>Email</th>
+	  </tr>
+
+	<% # TODO: (base_app) Add some sort of search feature to easily find users %>
+	<% for user in @users %>
+	  <tr>
+		<td><%=h user.id %></td>
+		<td><%=h user.login %></td>
+		<td><%=h user.email %></td>
+	    <td class="actions">
+			<%= link_to image_tag("icons/001_01.png", {:alt => "Agregar roles", :size => "16x16"}), new_admin_role_path %> 
+		</td>
+	  </tr>
+	<% end %>
+	</table>
+
+	<%= will_paginate @users %>
+</div>

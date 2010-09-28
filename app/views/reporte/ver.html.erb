@@ -1,0 +1,55 @@
+<h2>Resultados</h2>
+<div style="clear: both;">&nbsp;</div>
+<div class="entry">
+	Resultados de la búsqueda
+	<% if params[:reporte] == "1" %>
+	<table class="index">
+
+	  <tr>
+		<th> Fecha </th>
+		<th> Prioridad </th>
+		<th> Categoria </th>
+		<th> Nombre </th>
+		<th> Organizacion </th>
+	
+	  </tr>
+
+		<% @asuntos.each do |asunto| %>
+	  	<tr>
+			<td><%= asunto.fecha%></td>
+			<td><%= asunto.prioridad.tipo%></td>
+			<td><%= asunto.categoria.tipo%></td>
+			<td><%= asunto.nombresolicitante%></td>
+			<td><%= asunto.organizacion%></td>
+
+	  	</tr>
+		<% end %>
+	</table>
+
+	<%elsif params[:reporte] == "2" %>
+	<%= @fecha_final%>
+	<table class="index">
+
+	  <tr>
+		<th> Fecha </th>
+		<th> Prioridad </th>
+		<th> Categoria </th>
+		<th> Nombre </th>
+		<th> Organizacion </th>
+	
+	  </tr>
+
+		<% @asuntos.each do |asunto| %>
+	  	<tr>
+			<td><%= asunto.fecha%></td>
+			<td><%= asunto.prioridad.tipo%></td>
+			<td><%= asunto.categoria.tipo%></td>
+			<td><%= asunto.nombresolicitante%></td>
+			<td><%= asunto.organizacion%></td>
+
+	  	</tr>
+		<% end %>
+	</table>
+	<%end%>
+
+</div>

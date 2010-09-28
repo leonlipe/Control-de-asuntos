@@ -1,0 +1,63 @@
+<% content_for :header do -%>
+	Listado de todos los asuntos
+<% end -%>
+
+<h2 class="title">Asuntos </h2>
+<div style="clear: both;">&nbsp;</div>
+<div class="entry">
+<table class="index">
+
+  <tr>
+	<th> Fecha </th>
+	<th> Prioridad </th>
+	<th> Categoria </th>
+	<th> Nombre </th>
+	<th> Organizacion </th>
+	<!--<th> Asunto </th>
+	<th> Descripción del asunto</th>
+	<th> Atendido por </th>
+	<th> Turnado a </th>
+	<th> Telefono</th>
+	<th> Observaciones </th>
+	<th> Fecha ultimo contacto</th>
+	<th> Fecha siguiente contacto </th>
+	<th> Status </th>
+	<th> Audiencia publica </th>
+	<th> CC. Gobernador electo </th>
+-->
+  </tr>
+
+<% @asuntos.each do |asunto| %>
+  <tr>
+	<td><%= asunto.fecha%></td>
+	<td><%= asunto.prioridad.tipo%></td>
+	<td><%= asunto.categoria.tipo%></td>
+	<td><%= asunto.nombresolicitante%></td>
+	<td><%= asunto.organizacion%></td>
+	<!--
+	<td><%= asunto.asunto%></td>
+	<td><%= asunto.descripcion%></td>
+	<td><%= asunto.persona_atendio_id%></td>
+	<td><%= asunto.persona_turnado_id%></td>
+	<td><%= asunto.telefono%></td>
+	<td><%= asunto.observaciones%></td>
+	<td><%= asunto.fechaultcont%></td>
+	<td><%= asunto.fechasigcont%></td>
+	<td><%= asunto.status_id%></td>
+	<td><%= asunto.audienciapub%></td>
+	<td><%= asunto.gober%></td>
+	-->
+	
+    <td><%= link_to image_tag("icons/001_38.png", {:alt => "Visualizar asunto", :size => "16x16"}), asunto %></td>
+    <td><%= link_to image_tag("icons/001_45.png", {:alt => "Editar asunto", :size => "16x16"}), edit_asunto_path(asunto) %></td>
+    <td><%= link_to image_tag("icons/001_05.png", {:alt => "Borrar asunto", :size => "16x16"}), asunto, :confirm => 'Está seguro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate(@asuntos, :prev_label => "< Anterior", :next_label => "Siguiente >") %>
+
+
+<br />
+
+<%= link_to 'Nuevo asunto', new_asunto_path %>
+</div>

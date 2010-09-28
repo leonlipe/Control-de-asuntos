@@ -1,0 +1,19 @@
+<h2 class="title">Nueva prioridad </h2>
+<div style="clear: both;">&nbsp;</div>
+<div class="entry">
+
+<% form_for(@prioridad) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+	<%= f.label :tipo %><br />
+	<%= f.text_field :tipo %>	
+  </p>
+
+  <p>
+    <%= f.submit 'Crear' %>
+  </p>
+<% end %>
+
+<%= link_to 'Atrás', prioridads_path %>
+</div>

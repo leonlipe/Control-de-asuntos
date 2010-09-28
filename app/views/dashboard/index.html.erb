@@ -1,0 +1,147 @@
+<% content_for :sidebar do -%>
+<h2>Avisos</h2>
+<p>
+  Asuntos pendientes a vencer en la fecha del siguiente contacto
+</p>
+<% if !@asuntosparavencer.empty? %>
+	<table class="index">
+		<tr>
+	    <th>
+		Fecha sig. cont.	
+		</th>
+	    <th>
+		Prioridad	
+		</th>
+		<th>
+		</th>
+		</tr>
+	<% @asuntosparavencer.each do |asunto| %>
+	  <tr>
+	    <td>
+		<%=asunto.fechasigcont	%>
+		</td>
+	    <td>
+        <%=asunto.prioridad.tipo %>		
+		</td>
+		<td>
+        <%= link_to "ver" ,asunto %>		
+		</td>
+	  </tr>	
+	<% end %>
+	
+	</table>
+	
+	<% else%>
+	<p>
+	<b>	No se encontraron asuntos próximos a vencer</b>
+	</p>
+	<% end%>
+	
+<p>
+	
+	<p>
+	  Asuntos vencidos a la fecha de hoy
+	</p>
+	<% if !@asuntosvencidos.empty? %>
+		<table class="index">
+			<tr>
+		    <th>
+				Fecha sig. cont.	
+			</th>
+		    <th>
+			Prioridad	
+			</th>
+			<th>
+			</th>
+			</tr>
+		<% @asuntosvencidos.each do |asunto| %>
+		  <tr>
+		    <td>
+			<%=asunto.fechasigcont	%>
+			</td>
+		    <td>
+	        <%=asunto.prioridad.tipo %>		
+			</td>
+			<td>
+	        <%= link_to "ver" ,asunto %>		
+			</td>
+		  </tr>	
+		<% end %>
+
+		</table>
+
+		<% else%>
+		<p>
+		<b>	No se encontraron asuntos vencidos</b>
+		</p>
+		<% end%>
+
+<% end -%>
+
+
+	<h2 class="title">Asuntos para <%= current_user.name %> </h2>
+	<div style="clear: both;">&nbsp;</div>
+	<div class="entry">	
+	<p>
+Bienvenido al sitio de control de asuntos, sus asuntos pendientes:
+</p>
+
+
+<% if !@asuntos.empty? %>
+
+<table class="index">
+
+  <tr>
+	<th> Fecha </th>
+	<th> Prioridad </th>
+	<th> Nombre </th>
+	<th> Organizacion </th>
+	<!--<th> Asunto </th>
+	<th> Descripción del asunto</th>
+	<th> Atendido por </th>
+	<th> Turnado a </th>
+	<th> Telefono</th>
+	<th> Observaciones </th>
+	<th> Fecha ultimo contacto</th>
+	<th> Fecha siguiente contacto </th>
+	<th> Status </th>
+	<th> Audiencia publica </th>
+	<th> CC. Gobernador electo </th>
+-->
+  </tr>
+
+<% @asuntos.each do |asunto| %>
+  <tr>
+	<td><%= asunto.fecha%></td>
+	<td><%= asunto.prioridad.tipo%></td>
+	<td><%= asunto.nombresolicitante%></td>
+	<td><%= asunto.organizacion%></td>
+	<!--
+	<td><%= asunto.asunto%></td>
+	<td><%= asunto.descripcion%></td>
+	<td><%= asunto.persona_atendio_id%></td>
+	<td><%= asunto.persona_turnado_id%></td>
+	<td><%= asunto.telefono%></td>
+	<td><%= asunto.observaciones%></td>
+	<td><%= asunto.fechaultcont%></td>
+	<td><%= asunto.fechasigcont%></td>
+	<td><%= asunto.status_id%></td>
+	<td><%= asunto.audienciapub%></td>
+	<td><%= asunto.gober%></td>
+	-->
+	
+    <td class="actions">
+<%= link_to image_tag("icons/001_38.png", {:alt => "Visualizar asunto", :size => "16x16"}), asunto %>
+<%= link_to image_tag("icons/001_45.png", {:alt => "Editar asunto", :size => "16x16"}), edit_asunto_path(asunto) %>
+<%= link_to image_tag("icons/001_05.png", {:alt => "Borrar asunto", :size => "16x16"}), asunto, :confirm => 'Está seguro?', :method => :delete %>
+</td>
+  </tr>
+<% end %>
+</table>
+
+<% else %>
+<b> No se encontraron asuntos pendientes </b>
+<% end %>
+
+</div>
+

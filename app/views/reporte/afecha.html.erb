@@ -1,0 +1,27 @@
+<h2>Resultados</h2>
+<div style="clear: both;">&nbsp;</div>
+<div class="entry">
+Seleccione el rango de fechas para el reporte.
+<% form_tag('/reporte/afecha/ver', :method => :post) do %>
+
+<p>
+    <%= label_tag "Fecha inicial" %><br />
+</p>
+<p>
+	<%= calendar_date_select_tag "fecha_inicial" %>
+</p>
+<p>
+    <%= label_tag "Fecha final" %><br />
+</p>
+<p>
+	<%= calendar_date_select_tag "fecha_final" %>
+</p>
+<p>
+    <%= hidden_field_tag 'reporte', '2'%>
+</p>
+
+  <p>
+    <%= submit_tag 'Visualizar' %>
+  </p>
+<% end %>
+</div>

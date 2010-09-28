@@ -1,0 +1,19 @@
+<h2 class="title">Editando status </h2>
+<div style="clear: both;">&nbsp;</div>
+<div class="entry">
+<% form_for(@status) do |f| %>
+  <%= f.error_messages %>
+
+<p>
+    <%= f.label :tipo %><br />
+    <%= f.text_field :tipo %>
+  </p>
+
+  <p>
+    <%= f.submit 'Actualizar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Ver', @status %> |
+<%= link_to 'Atrás', statuses_path %>
+</div>

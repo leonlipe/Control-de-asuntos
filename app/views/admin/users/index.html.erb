@@ -1,0 +1,31 @@
+<h2 class="title">Listado de usuarios </h2>
+<div style="clear: both;">&nbsp;</div>
+<div class="entry">
+
+
+	<table class="index">
+	  <tr>
+		<th>ID</th>
+		<th>Login</th>
+		<th>Email</th>
+	  </tr>
+
+	<% # TODO: (base_app) Add some sort of search feature to easily find users %>
+	<% for user in @users %>
+	  <tr>
+		<td><%=h user.id %></td>
+		<td><%= link_to h(user.login), admin_user_url(user) %></td>
+		<td><%=h user.email %></td>
+	    <td class="actions">
+		
+		</td>
+	  </tr>
+	<% end %>
+	</table>
+
+	<%= will_paginate @users %>
+
+	<p>
+		<%= link_to 'Nuevo usuario', new_admin_user_path %>
+	</p>
+</div>

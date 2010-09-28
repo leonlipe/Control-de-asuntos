@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fecha: 2010-09-20
+  nombresolicitante: MyString
+  organizacion: MyString
+  asunto: MyString
+  descripcion: MyText
+  telefono: MyString
+  observaciones: MyText
+  fechaultcont: 2010-09-20
+  fechasigcont: 2010-09-20
+  audienciapub: false
+  gober: false
+
+two:
+  fecha: 2010-09-20
+  nombresolicitante: MyString
+  organizacion: MyString
+  asunto: MyString
+  descripcion: MyText
+  telefono: MyString
+  observaciones: MyText
+  fechaultcont: 2010-09-20
+  fechasigcont: 2010-09-20
+  audienciapub: false
+  gober: false

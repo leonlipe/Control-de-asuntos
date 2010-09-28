@@ -1,0 +1,22 @@
+<h2 class="title">Detalle del asunto </h2>
+<div style="clear: both;">&nbsp;</div>
+<div style="clear: both;">&nbsp;</div>
+<div class="entry">
+<%= render :partial => "asuntoformshow" %>
+
+<% form_for ([@asunto, @asunto.comentarios.build]) do |f| %>
+
+<p>
+    <%= f.label :comentario ,'Comentario' %><br />
+    <%= f.text_field :comentario  %>
+  <div class="actions">
+    <%= f.submit 'Agregar comentario'%>
+  </div>
+</p>
+
+
+<%end %>
+
+<%= link_to 'Editar', edit_asunto_path(@asunto) %> |
+<%= link_to 'Atrás', root_path %>
+</div>

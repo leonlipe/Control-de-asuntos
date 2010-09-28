@@ -1,0 +1,16 @@
+<h1>New persona</h1>
+
+<% form_for(@persona) do |f| %>
+  <%= f.error_messages %>
+
+<p>
+	<%= f.label :nombre %>
+	<%= f.text_field :nombre %>
+	
+	</p>
+  <p>
+    <%= f.submit 'Crear' %>
+  </p>
+<% end %>
+
+<%= link_to 'Regresar', personas_path %>

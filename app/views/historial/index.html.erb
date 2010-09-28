@@ -1,0 +1,62 @@
+
+<% content_for :header do -%>
+  <b> Historial del asunto </b>
+
+<% end -%>
+<h2 class="title">Historial</h2>
+<div style="clear: both;">&nbsp;</div>
+<div class="entry">
+<% if !@asuntos.empty? %>
+
+<table class="index">
+
+  <tr>
+	<th> Fecha </th>
+	<th> Prioridad </th>
+	<th> Categoria </th>
+	<th> Nombre </th>
+	<th> Organizacion </th>
+	<!--<th> Asunto </th>
+	<th> Descripción del asunto</th>
+	<th> Atendido por </th>
+	<th> Turnado a </th>
+	<th> Telefono</th>
+	<th> Observaciones </th>
+	<th> Fecha ultimo contacto</th>
+	<th> Fecha siguiente contacto </th>
+	<th> Status </th>
+	<th> Audiencia publica </th>
+	<th> CC. Gobernador electo </th>
+-->
+  </tr>
+
+<% @asuntos.each do |asunto| %>
+  <tr>
+	<td><%= asunto.fecha%></td>
+	<td><%= asunto.prioridad.tipo%></td>
+	<td><%= asunto.categoria.tipo%></td>
+	<td><%= asunto.nombresolicitante%></td>
+	<td><%= asunto.organizacion%></td>
+	<!--
+	<td><%= asunto.asunto%></td>
+	<td><%= asunto.descripcion%></td>
+	<td><%= asunto.persona_atendio_id%></td>
+	<td><%= asunto.persona_turnado_id%></td>
+	<td><%= asunto.telefono%></td>
+	<td><%= asunto.observaciones%></td>
+	<td><%= asunto.fechaultcont%></td>
+	<td><%= asunto.fechasigcont%></td>
+	<td><%= asunto.status_id%></td>
+	<td><%= asunto.audienciapub%></td>
+	<td><%= asunto.gober%></td>
+	-->
+	
+    <td><%= link_to image_tag("icons/001_38.png", {:alt => "Visualizar asunto", :size => "16x16"}), asunto %></td>
+  </tr>
+<% end %>
+</table>
+
+<% else %>
+<b> No se encontraron asuntos</b>
+<% end %>
+</div>

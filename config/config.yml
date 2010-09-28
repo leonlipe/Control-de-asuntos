@@ -1,0 +1,34 @@
+# Configuration options can be accessed as
+# configatron.site_name
+
+development: &local
+    site_name: Control de asuntos
+    site_namemobile: Control de asuntos
+    site_url: baseapp2.local
+    
+    company_name: redleon.net
+    admin_email: leon@redleon.net
+    
+    support_name: Control de asuntos
+    support_email: soporte@redleon.net
+    
+    site_envnote: Local Server
+
+production:
+    site_name: BaseAppPRD
+    site_namemobile: BaseApp2
+    site_url: www.baseapp2.com
+    
+    company_name: BaseApp2 Ltd
+    admin_email: admin@baseapp2.com
+    
+    support_name: BaseApp2 Support
+    support_email: support@baseapp2.com
+    
+    site_envnote: Production Server
+  
+staging:
+  <<: *local
+
+test:
+  <<: *local

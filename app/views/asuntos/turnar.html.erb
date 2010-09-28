@@ -1,0 +1,23 @@
+<% content_for :header do -%>
+	Editar asunto
+<% end -%>
+<%= render :partial => "asuntoformshow" %>
+
+<% form_for(@asunto) do |f| %>
+  <%= f.error_messages %>
+
+<p>
+    <%= f.label :Turnado, "Turnado a" %><br />
+    <%= f.select "persona_turnado_id", User.all.collect {|p| [ p.name, p.id ] }  %>
+  </p>
+
+
+
+
+
+  <p>
+    <%= f.submit 'Turnar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Atrás', root_path %>

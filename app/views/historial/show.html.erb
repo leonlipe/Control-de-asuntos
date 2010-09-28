@@ -1,0 +1,41 @@
+	<h2 class="title">Detalle del historial</h2>
+	<div style="clear: both;">&nbsp;</div>
+	<div class="entry">
+
+
+<p>
+	<% if !@movimientos.empty?%>
+	<table class="index">
+	<tr>
+		<th>
+			Fecha
+		</th>
+		<th>
+			Usuario
+		</th>
+		<th>
+			Descripción del movimiento
+		</th>
+
+	</tr>	
+	<% @movimientos.each do |movimiento|%>
+	  <tr>
+		<td>
+			<%= movimiento.created_at %>
+		</td>
+		<td>
+			<%= movimiento.user.name %>
+		</td>
+		<td>
+			<%= movimiento.descripcion %>
+		</td>
+	  </tr>
+	<% end %>
+	</table>	
+	<% else%>
+	<b> No se encontraron movimientos. </b>
+	<%end%>
+</p>
+
+<%= link_to 'Atrás', :controller => "historial" %>
+</div>

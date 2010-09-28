@@ -1,0 +1,10 @@
+<h2 class="title">Ver asuntos </h2>
+<div style="clear: both;">&nbsp;</div>
+<div class="entry">
+<p>
+<b> Tipo </b>
+    <%=h @status.tipo %>
+  </p>
+<%= link_to 'Editar', edit_status_path(@status) %> |
+<%= link_to 'Atrás', statuses_path %>
+</div>

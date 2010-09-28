@@ -1,0 +1,10 @@
+<% content_for :header do -%>
+	Nuevo asunto
+<% end -%>
+<h2 class="title">Nuevo asunto</h2>
+<div style="clear: both;">&nbsp;</div>
+<div class="entry">
+<%= render :partial => "asuntoform" %>
+
+<%= link_to 'Atrás', root_path %>
+</div>

@@ -1,0 +1,33 @@
+
+<table>
+<%=cell_with_clase "Fecha", @asunto.fecha,"" %>
+<%= cell_with_clase "Asunto", @asunto.prioridaddesc,"" %>
+<%=cell_with_clase "Categoria", @asunto.categoriadesc,"" %>
+<%=cell_with_clase "Nombre del solicitante", @asunto.nombresolicitante, "" %>
+<%=cell_with_clase "Organizacion", @asunto.organizacion, "" %>
+<%=cell_with_clase "Asunto", @asunto.asunto %>
+<%=cell_with_clase "Descripcion", @asunto.descripcion %>
+<%=cell_with_clase "Atendido por", @asunto.personaatendio %>
+<%=cell_with_clase "Turnado a", @asunto.personaturnado %>
+<%=cell_with_clase "Telefono", @asunto.telefono %>
+<%=cell_with_clase "Observaciones", @asunto.observaciones %>
+<%=cell_with_clase "Fecha del ultimo contacto", @asunto.fechaultcont %>
+<%=cell_with_clase "Fecha del siguiente contacto", @asunto.fechasigcont %>
+<%= cell_with_clase "Status",  @asunto.status.tipo %>
+<%= cell_with_clase "Audiencia publica", (@asunto.audienciapub ? "SI": "NO") %>
+<%= cell_with_clase "CC Gobernador electo", (@asunto.gober ? "SI": "NO") %>
+</p>
+<table class="index">
+	<tr>
+	<td colspan="4">Comentarios	</td>
+	</tr>
+<% @asunto.comentarios.each do |cometario| %>
+<tr>	
+	<td><b> <%= cometario.user.name %> dijo: </b><%= cometario.comentario %></td>
+</tr>
+<% end %>
+ </table>
+
+</table>
+
+

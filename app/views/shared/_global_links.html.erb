@@ -1,0 +1,7 @@
+<% if logged_in? %>
+ 	<strong>Usuario actual:<%= current_user.name %></strong> | 
+	<%= link_to "Inicio", root_url %> | 
+	<%= link_to "Salir", logout_url, :method => :delete %>
+<% else %>
+	<%= link_to "Entrar", login_url %>
+<% end %>
