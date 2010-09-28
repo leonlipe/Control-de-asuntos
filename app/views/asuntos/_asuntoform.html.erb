@@ -3,7 +3,7 @@
 
 <table>
 
-    <%= cell_with_clase "Fecha", f.date_select(:fecha), "" %>
+    <%= cell_with_clase t(:fecha), f.date_select(:fecha), "" %>
     <%= cell_with_clase "Prioridad", f.select("prioridad_id", Prioridad.all.collect {|p| [ p.tipo, p.id ] } ),"" %>
     <%= cell_with_clase "Categoria", f.select("categoria_id", Categoria.all.collect {|p| [ p.tipo, p.id ] }  ),""%>
     <%= cell_with_clase "Nombre del solicitante", f.text_field(:nombresolicitante ,:size => "50"),"" %>
