@@ -30,7 +30,7 @@ private
   end
   
   def consulta_pendientes
-     if (current_user.nil?)
+     if (!current_user.nil?)
        usuarios = Array.new(current_user.subordinados)
        usuarios.push(current_user)
        @asuntosparavencer = Asunto.all(:conditions => ["fechasigcont > ? and fechasigcont < ? and status_id <> ? and persona_turnado_id in (?)",
