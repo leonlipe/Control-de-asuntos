@@ -30,11 +30,13 @@ private
   end
   
   def consulta_pendientes
-     usuarios = Array.new(current_user.subordinados)
-     usuarios.push(current_user)
-     @asuntosparavencer = Asunto.all(:conditions => ["fechasigcont > ? and fechasigcont < ? and status_id <> ? and persona_turnado_id in (?)",
+     if (current_user?)
+       usuarios = Array.new(current_user.subordinados)
+       usuarios.push(current_user)
+       @asuntosparavencer = Asunto.all(:conditions => ["fechasigcont > ? and fechasigcont < ? and status_id <> ? and persona_turnado_id in (?)",
                                                       (Time.now.midnight-1),(Time.now.midnight+2.day),10,usuarios])
-     @asuntosvencidos = Asunto.all(:conditions => ["fechasigcont < ? and status_id <> ? and persona_turnado_id in (?)",Time.now.midnight-1,1,usuarios ])    
+       @asuntosvencidos = Asunto.all(:conditions => ["fechasigcont < ? and status_id <> ? and persona_turnado_id in (?)",Time.now.midnight-1,1,usuarios ])    
+     end
   end
 
 end
