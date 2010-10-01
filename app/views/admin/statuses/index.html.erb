@@ -1,4 +1,6 @@
 <h2 class="title">Listado de status </h2>
+<%= link_to image_tag("icons/001_01.png", {:alt => "Nuevo status", :size => "24x24"}), new_admin_status_path %>
+
 <div style="clear: both;">&nbsp;</div>
 <div class="entry">
 <table class="index">
@@ -9,14 +11,12 @@
 <% @statuses.each do |status| %>
   <tr>
 	<td><%=h status.tipo %></td>
-    <td class="actions"><%= link_to  image_tag("icons/001_38.png", {:alt => "Visualizar asunto", :size => "16x16"}), status %>
-    <%= link_to image_tag("icons/001_45.png", {:alt => "Editar asunto", :size => "16x16"}), edit_status_path(status) %>
-    <%= link_to image_tag("icons/001_05.png", {:alt => "Borrar asunto", :size => "16x16"}), status, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td class="actions"><%= link_to  image_tag("icons/001_38.png", {:alt => "Visualizar asunto", :size => "16x16"}), admin_status_path(status) %>
+    <%= link_to image_tag("icons/001_45.png", {:alt => "Editar asunto", :size => "16x16"}), edit_admin_status_path(status) %>
+    <%= link_to image_tag("icons/001_05.png", {:alt => "Borrar asunto", :size => "16x16"}),  admin_status_path(status), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'Nuevo status', new_status_path %>
 </div>

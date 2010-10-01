@@ -1,5 +1,5 @@
 
-<table>
+<table class="index2">
 <%=cell_with_clase "Fecha", @asunto.fecha,"" %>
 <%= cell_with_clase "Asunto", @asunto.prioridaddesc,"" %>
 <%=cell_with_clase "Categoria", @asunto.categoriadesc,"" %>
@@ -17,15 +17,20 @@
 <%= cell_with_clase "Audiencia publica", (@asunto.audienciapub ? "SI": "NO") %>
 <%= cell_with_clase "CC Gobernador electo", (@asunto.gober ? "SI": "NO") %>
 </p>
-<table class="index">
-	<tr>
-	<td colspan="4">Comentarios	</td>
-	</tr>
-<% @asunto.comentarios.each do |cometario| %>
-<tr>	
-	<td><b> <%= cometario.user.name %> dijo: </b><%= cometario.comentario %></td>
+<table class="indexcomment">
+	<caption>Comentarios</caption> 
+<tbody>	
+<% @asunto.comentarios.each do |comentario| %>
+<tr class="odd">	
+	<td><b> <%= comentario.user.name %> en <%= comentario.created_at.to_s(:short) %> dijo: </b></td>
+</tr>
+<tr>
+	<td>
+	<%= comentario.comentario %></td>
+	</td>
 </tr>
 <% end %>
+</tbody>
  </table>
 
 </table>

@@ -1,90 +1,10 @@
-<% content_for :sidebar do -%>
-<h2>Avisos</h2>
-<p>
-  Asuntos pendientes a vencer en la fecha del siguiente contacto
-</p>
-<% if !@asuntosparavencer.empty? %>
-	<table class="index">
-		<tr>
-	    <th>
-		Fecha sig. cont.	
-		</th>
-	    <th>
-		Prioridad	
-		</th>
-		<th>
-		</th>
-		</tr>
-	<% @asuntosparavencer.each do |asunto| %>
-	  <tr>
-	    <td>
-		<%=asunto.fechasigcont	%>
-		</td>
-	    <td>
-        <%=asunto.prioridad.tipo %>		
-		</td>
-		<td>
-        <%= link_to "ver" ,asunto %>		
-		</td>
-	  </tr>	
-	<% end %>
-	
-	</table>
-	
-	<% else%>
-	<p>
-	<b>	No se encontraron asuntos próximos a vencer</b>
-	</p>
-	<% end%>
-	
-<p>
-	
-	<p>
-	  Asuntos vencidos a la fecha de hoy
-	</p>
-	<% if !@asuntosvencidos.empty? %>
-		<table class="index">
-			<tr>
-		    <th>
-				Fecha sig. cont.	
-			</th>
-		    <th>
-			Prioridad	
-			</th>
-			<th>
-			</th>
-			</tr>
-		<% @asuntosvencidos.each do |asunto| %>
-		  <tr>
-		    <td>
-			<%=asunto.fechasigcont	%>
-			</td>
-		    <td>
-	        <%=asunto.prioridad.tipo %>		
-			</td>
-			<td>
-	        <%= link_to "ver" ,asunto %>		
-			</td>
-		  </tr>	
-		<% end %>
-
-		</table>
-
-		<% else%>
-		<p>
-		<b>	No se encontraron asuntos vencidos</b>
-		</p>
-		<% end%>
-
-<% end -%>
-
-
+<%= render :partial => "shared/pendientes"%>
 	<h2 class="title">Asuntos para <%= current_user.name %> </h2>
 	<div style="clear: both;">&nbsp;</div>
 	<div class="entry">	
 	<p>
-Bienvenido al sitio de control de asuntos, sus asuntos pendientes:
-</p>
+      Bienvenido al sitio de control de asuntos, sus asuntos pendientes:
+    </p>
 
 
 <% if !@asuntos.empty? %>
@@ -96,6 +16,7 @@ Bienvenido al sitio de control de asuntos, sus asuntos pendientes:
 	<th> Prioridad </th>
 	<th> Nombre </th>
 	<th> Organizacion </th>
+	<th>  </th>
 	<!--<th> Asunto </th>
 	<th> Descripción del asunto</th>
 	<th> Atendido por </th>
@@ -110,8 +31,8 @@ Bienvenido al sitio de control de asuntos, sus asuntos pendientes:
 -->
   </tr>
 
-<% @asuntos.each do |asunto| %>
-  <tr>
+<% @asuntos.each_with_index do |asunto,i| %>
+  <tr class="<%= i%2 == 0 ? "even" : "odd"%>">
 	<td><%= asunto.fecha%></td>
 	<td><%= asunto.prioridad.tipo%></td>
 	<td><%= asunto.nombresolicitante%></td>
@@ -138,7 +59,7 @@ Bienvenido al sitio de control de asuntos, sus asuntos pendientes:
   </tr>
 <% end %>
 </table>
-
+<%= will_paginate(@asuntos, :prev_label => "< Anterior", :next_label => "Siguiente >", :class => "flickr_pagination") %>
 <% else %>
 <b> No se encontraron asuntos pendientes </b>
 <% end %>

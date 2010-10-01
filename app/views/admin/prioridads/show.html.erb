@@ -1,4 +1,7 @@
 <h2 class="title">Prioridad </h2>
+<%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), admin_prioridads_path %>
+<%= link_to image_tag("icons/001_45.png", {:alt => "Editar", :size => "24x24"}), edit_admin_prioridad_path(@prioridad) %>
+
 <div style="clear: both;">&nbsp;</div>
 <div class="entry">
 <p>
@@ -6,6 +9,4 @@
 	<%= h @prioridad.tipo %>	
   </p>
 
-<%= link_to 'Editar', edit_prioridad_path(@prioridad) %> |
-<%= link_to 'Atrás', prioridads_path %>
 </div>

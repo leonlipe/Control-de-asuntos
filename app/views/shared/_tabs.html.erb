@@ -1,9 +1,6 @@
 <ul>
-<!--	<li style="float: right;"><a href="#">Tab 1</a></li>
-	<li style="float: right;"><a href="#">Tab 2</a></li>
--->
-	<li class="<%= menu_actual([{:controller => "dashboard" }])%>"><%= tab_to "Inicio", [{:controller => "dashboard" }] %></li>
-	<li class="<%= menu_actual([{:controller => "asuntos" }])%>"><%= tab_to "Nuevo asunto", [{:controller => "asuntos", :action => "new" }] %></li>
-	<li class="<%= menu_actual([{:controller => "historial" }])%>"><%= tab_to "Historial de asunto",[{:controller => "historial" }]  %></li>
-	<li class="<%= menu_actual([{:controller => "reporte" }])%>"><%= tab_to "Reportes",[{:controller => "reporte" }] %></li>
+	<li><%= tab_to "INICIO", [{:controller => "dashboard" }] %></li>
+	<li><%= tab_to "NUEVO ASUNTO", [{:controller => "asuntos", :action => "new" }] %></li>
+	<li><%= tab_to "HISTORIAL DE ASUNTO",[{:controller => "historial" }]  %></li>
+	<li><%= tab_to "REPORTES",[{:controller => "reporte" }] %></li>
 </ul>

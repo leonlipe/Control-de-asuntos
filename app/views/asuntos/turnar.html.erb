@@ -1,6 +1,5 @@
-<% content_for :header do -%>
-	Editar asunto
-<% end -%>
+<%= render :partial => "shared/pendientes"%>
+
 <%= render :partial => "asuntoformshow" %>
 
 <% form_for(@asunto) do |f| %>

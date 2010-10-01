@@ -1,4 +1,9 @@
+<% content_for :sidebar do -%>
+ <%= render :partial => "sidebar"%>
+<%end %>
+
 <h2>Resultados</h2>
+<%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), root_path %>
 <div style="clear: both;">&nbsp;</div>
 <div class="entry">
 	Resultados de la búsqueda
@@ -25,7 +30,7 @@
 	  	</tr>
 		<% end %>
 	</table>
-
+	<%= will_paginate(@asuntos, :prev_label => "< Anterior", :next_label => "Siguiente >", :class => "flickr_pagination") %>
 	<%elsif params[:reporte] == "2" %>
 	<%= @fecha_final%>
 	<table class="index">
@@ -50,6 +55,8 @@
 	  	</tr>
 		<% end %>
 	</table>
+	<%= will_paginate(@asuntos, :prev_label => "< Anterior", :next_label => "Siguiente >", :class => "flickr_pagination") %>
+	
 	<%end%>
 
 </div>

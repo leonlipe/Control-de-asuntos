@@ -1,4 +1,6 @@
 <h2 class="title">Listado de categorías </h2>
+<%= link_to image_tag("icons/001_01.png", {:alt => "Nueva categoría", :size => "24x24"}), new_admin_categoria_path %>
+
 <div style="clear: both;">&nbsp;</div>
 <div class="entry">
 <table class="index">
@@ -9,15 +11,13 @@
 <% @categorias.each do |categoria| %>
   <tr>
 	<td><%=h categoria.tipo %></td>
-    <td class="actions"><%= link_to  image_tag("icons/001_38.png", {:alt => "Visualizar asunto", :size => "16x16"}), categoria %>
-    <%= link_to image_tag("icons/001_45.png", {:alt => "Editar asunto", :size => "16x16"}), edit_categoria_path(categoria) %>
-    <%= link_to image_tag("icons/001_05.png", {:alt => "Borrar asunto", :size => "16x16"}), categoria, :confirm => 'Está seguro?', :method => :delete %></td>
+    <td class="actions"><%= link_to  image_tag("icons/001_38.png", {:alt => "Visualizar categoria", :size => "16x16"}), admin_categoria_path(categoria) %>
+    <%= link_to image_tag("icons/001_45.png", {:alt => "Editar asunto", :size => "16x16"}), edit_admin_categoria_path(categoria) %>
+    <%= link_to image_tag("icons/001_05.png", {:alt => "Borrar asunto", :size => "16x16"}), admin_categoria_path(categoria), :confirm => 'Está seguro?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'Nueva categoria', new_categoria_path %>
 
 </div>

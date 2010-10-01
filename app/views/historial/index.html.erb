@@ -1,9 +1,6 @@
-
-<% content_for :header do -%>
-  <b> Historial del asunto </b>
-
-<% end -%>
+<%= render :partial => "shared/pendientes"%>
 <h2 class="title">Historial</h2>
+
 <div style="clear: both;">&nbsp;</div>
 <div class="entry">
 <% if !@asuntos.empty? %>
@@ -16,6 +13,7 @@
 	<th> Categoria </th>
 	<th> Nombre </th>
 	<th> Organizacion </th>
+	<th></th>
 	<!--<th> Asunto </th>
 	<th> Descripción del asunto</th>
 	<th> Atendido por </th>
@@ -30,8 +28,8 @@
 -->
   </tr>
 
-<% @asuntos.each do |asunto| %>
-  <tr>
+<% @asuntos.each_with_index do |asunto,i| %>
+  <tr class="<%= i%2 == 0 ? "even" : "odd"%>">
 	<td><%= asunto.fecha%></td>
 	<td><%= asunto.prioridad.tipo%></td>
 	<td><%= asunto.categoria.tipo%></td>
@@ -51,10 +49,11 @@
 	<td><%= asunto.gober%></td>
 	-->
 	
-    <td><%= link_to image_tag("icons/001_38.png", {:alt => "Visualizar asunto", :size => "16x16"}), asunto %></td>
+    <td><%= link_to image_tag("icons/001_38.png", {:alt => "Visualizar historial", :size => "16x16"}), historial_path(asunto) %></td>
   </tr>
 <% end %>
 </table>
+<%= will_paginate(@asuntos, :prev_label => "< Anterior", :next_label => "Siguiente >", :class => "flickr_pagination") %>
 
 <% else %>
 <b> No se encontraron asuntos</b>

@@ -1,4 +1,7 @@
+<%= render :partial => "shared/pendientes"%>
 	<h2 class="title">Detalle del historial</h2>
+	<%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), root_path %>
+	
 	<div style="clear: both;">&nbsp;</div>
 	<div class="entry">
 
@@ -32,10 +35,13 @@
 	  </tr>
 	<% end %>
 	</table>	
+	<%= will_paginate(@movimientos, :prev_label => "< Anterior", :next_label => "Siguiente >", :class => "flickr_pagination") %>
+	
 	<% else%>
 	<b> No se encontraron movimientos. </b>
 	<%end%>
 </p>
+
 
 <%= link_to 'Atrás', :controller => "historial" %>
 </div>

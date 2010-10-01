@@ -1,6 +1,7 @@
+<%= render :partial => "shared/pendientes"%>
 <h2 class="title">Detalle del asunto </h2>
-<div style="clear: both;">&nbsp;</div>
-<div style="clear: both;">&nbsp;</div>
+<%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), root_path %>
+<%= link_to image_tag("icons/001_45.png", {:alt => "Editar", :size => "24x24"}), edit_asunto_path(@asunto) %> 
 <div class="entry">
 <%= render :partial => "asuntoformshow" %>
 
@@ -8,7 +9,7 @@
 
 <p>
     <%= f.label :comentario ,'Comentario' %><br />
-    <%= f.text_field :comentario  %>
+    <%= f.text_area :comentario, :size => "40x10"  %>
   <div class="actions">
     <%= f.submit 'Agregar comentario'%>
   </div>
@@ -17,6 +18,5 @@
 
 <%end %>
 
-<%= link_to 'Editar', edit_asunto_path(@asunto) %> |
-<%= link_to 'Atrás', root_path %>
+
 </div>

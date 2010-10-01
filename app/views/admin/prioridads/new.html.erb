@@ -1,8 +1,9 @@
 <h2 class="title">Nueva prioridad </h2>
+<%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), admin_prioridads_path %>
 <div style="clear: both;">&nbsp;</div>
 <div class="entry">
 
-<% form_for(@prioridad) do |f| %>
+<% form_for :prioridad, :url => admin_prioridads_path do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -15,5 +16,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Atrás', prioridads_path %>
 </div>

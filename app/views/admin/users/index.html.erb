@@ -1,23 +1,25 @@
 <h2 class="title">Listado de usuarios </h2>
+<%= link_to image_tag("icons/001_01.png", {:alt => "Nuevo usuario", :size => "24x24"}), new_admin_user_path %>
+
 <div style="clear: both;">&nbsp;</div>
 <div class="entry">
 
 
 	<table class="index">
 	  <tr>
-		<th>ID</th>
 		<th>Login</th>
+		<th>Nombre</th>
 		<th>Email</th>
 	  </tr>
 
-	<% # TODO: (base_app) Add some sort of search feature to easily find users %>
 	<% for user in @users %>
 	  <tr>
-		<td><%=h user.id %></td>
-		<td><%= link_to h(user.login), admin_user_url(user) %></td>
+		<td><%=h user.login %></td>
+		<td><%=h user.name %></td>
 		<td><%=h user.email %></td>
 	    <td class="actions">
-		
+			<%= link_to image_tag("icons/001_38.png", {:alt => "Visualizar", :size => "16x16"}), admin_user_url(user) %>
+			<%= link_to image_tag("icons/001_45.png", {:alt => "Editar", :size => "16x16"}), edit_admin_user_path(user) %>
 		</td>
 	  </tr>
 	<% end %>
@@ -26,6 +28,5 @@
 	<%= will_paginate @users %>
 
 	<p>
-		<%= link_to 'Nuevo usuario', new_admin_user_path %>
 	</p>
 </div>

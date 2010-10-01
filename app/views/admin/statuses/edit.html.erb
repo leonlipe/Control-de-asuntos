@@ -1,7 +1,9 @@
 <h2 class="title">Editando status </h2>
+<%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), admin_statuses_path %>
+
 <div style="clear: both;">&nbsp;</div>
 <div class="entry">
-<% form_for(@status) do |f| %>
+<% form_for(:status, :url => admin_status_path) do |f| %>
   <%= f.error_messages %>
 
 <p>
@@ -14,6 +16,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Ver', @status %> |
-<%= link_to 'Atrás', statuses_path %>
 </div>

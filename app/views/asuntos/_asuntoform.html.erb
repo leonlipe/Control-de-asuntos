@@ -1,8 +1,7 @@
 <% form_for(@asunto) do |f| %>
   <%= f.error_messages %>
 
-<table>
-
+<table class="index2">
     <%= cell_with_clase t(:fecha), f.date_select(:fecha), "" %>
     <%= cell_with_clase "Prioridad", f.select("prioridad_id", Prioridad.all.collect {|p| [ p.tipo, p.id ] } ),"" %>
     <%= cell_with_clase "Categoria", f.select("categoria_id", Categoria.all.collect {|p| [ p.tipo, p.id ] }  ),""%>
@@ -19,7 +18,6 @@
     <%= cell_with_clase "Status", f.select("status_id", Status.all.collect {|p| [ p.tipo, p.id ] } ),"" %>
     <%= cell_with_clase "Audiencia publica", f.check_box(:audienciapub),""  %>
     <%= cell_with_clase "CC Gobernador electo",f.check_box(:gober),""  %>
-</p>
 </table>
 &nbsp;
   <p>

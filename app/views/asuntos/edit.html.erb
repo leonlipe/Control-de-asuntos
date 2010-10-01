@@ -1,9 +1,12 @@
+<%= render :partial => "shared/pendientes"%>
+
 <h2 class="title">Editar el asunto </h2>
+<%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), root_path %>
 <div style="clear: both;">&nbsp;</div>
 <div style="clear: both;">&nbsp;</div>
 <div class="entry">
 <%= render :partial => "asuntoform" %>
 
 
-<%= link_to 'Atrás', root_path %>
+
 </div>

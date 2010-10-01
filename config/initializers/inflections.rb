@@ -20,4 +20,7 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'role', 'roles'
   inflect.irregular 'session', 'sessions'
   inflect.irregular 'prioridad', 'prioridads'
+  inflect.irregular 'status', 'statuses'
+  inflect.irregular 'historial', 'historiales'
+
 end

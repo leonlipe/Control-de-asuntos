@@ -1,7 +1,9 @@
 <h2 class="title">Editando categoría </h2>
+<%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), admin_categorias_path %>
+
 <div style="clear: both;">&nbsp;</div>
 <div class="entry">
-<% form_for(@categoria) do |f| %>
+<% form_for :categoria, :url => admin_categorias_path do |f| %>
   <%= f.error_messages %>
 
 <p>
@@ -12,7 +14,4 @@
     <%= f.submit 'Actualizar' %>
   </p>
 <% end %>
-
-<%= link_to 'Ver', @categoria %> |
-<%= link_to 'Atrás', categorias_path %>
 </div>

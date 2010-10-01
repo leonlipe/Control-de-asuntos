@@ -18,9 +18,11 @@ ActionController::Routing::Routes.draw do |map|
   
   ## Administración
   map.namespace(:admin) do |admin|
-     admin.root :controller => 'dashboard', :action => 'index'
-     map.resources :statuses, :categorias, :prioridads
+     admin.resources :statuses
+     admin.resources  :categorias 
+     admin.resources :prioridads
      admin.resources :roles, :users  
+     admin.root :controller => 'dashboard', :action => 'index'
    end
 
   # The priority is based upon order of creation: first created -> highest priority.

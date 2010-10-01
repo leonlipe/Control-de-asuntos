@@ -1,57 +1,44 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-	<title><%= configatron.site_name %></title>
-	<%= stylesheet_link_merged :base %>
-	<%= javascript_include_tag :defaults %>
-	<%= calendar_date_select_includes "silver" %>
-  
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title><%= configatron.site_name %></title>
+<%= stylesheet_link_merged :base %>
+<%= javascript_include_tag :defaults %>
+<%= calendar_date_select_includes "silver" %>
 </head>
 
 <body>
-		<div id="global_links">
-		    <%= render :partial => 'shared/global_links' %>
-		  </div>
-	<div id="wrapper">
-		
-		<div id="page">
-		
-			<div id="page-bgtop">
-				<div id="page-bgbtm">
-					<div id="content">
-						<div class="post">
-						 <%= yield %>
-						</div>
+<div>
+<div id="contenedor">
+<div id="fca_top">
+  <%= render :partial => "shared/global_links" %>
+  </div>
 
-					</div>
-					<!-- end #content -->
-					<div id="sidebar">
-						<div id="logo">
-							<h1><a href="#">Asuntos </a></h1>
-							<p>administración</p>
-						</div>
-						<div id="menu">
-						  <%= render :partial => "shared/admin/tabs" %>
-						</div>
-						<div id="subsidebar">
-							 <%= yield_or_default(yield(:sidebar)) %>
-						</div>
-				    </div>
-					<!-- end #sidebar -->
-					<div style="clear: both;">&nbsp;</div>
-			</div>
-		</div>
-		<!-- end #page -->
-	</div>
-	<div id="footer">
-		<p>Copyright (c) 2010 control de asuntos. <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
-	</div>
-	
-							
+<div id="banner">
+	<%= image_tag("img/banner.jpg", {:alt => "Logo"})%>
+</div>
+</div>
+</div>
+<div class="arrriba">
+<div id="contenedor">
+<div id="menu">
+  <%= render :partial => "shared/admin/tabs" %>
+</div>
+<div class="columnas">  
+<div id="informacion"><!-- InstanceBeginEditable name="informacion" -->
+ <%= yield %>
+  <!-- InstanceEndEditable --></div>
+<div id="menu_lateral">
+  <%= yield :sidebar%>
+</div></div>
+<div id="pie">
+	<%= render :partial => "shared/footer"%>
+
+  
+  </div>
+  </div>
+</div>
 
 </body>
-</html>
+<!-- InstanceEnd --></html>

@@ -8,4 +8,4 @@
       - application
     stylesheets: 
     - base: 
-      - stylememoranda
+      - estilo

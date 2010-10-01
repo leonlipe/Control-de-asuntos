@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   before_filter :prepare_for_mobile
+  before_filter :consulta_pendientes
+  
 private
 
   def mobile_device?
@@ -25,6 +27,14 @@ private
   def prepare_for_mobile
     session[:mobile_param] = params[:mobile] if params[:mobile]
     request.format = :mobile if mobile_device?
+  end
+  
+  def consulta_pendientes
+     usuarios = Array.new(current_user.subordinados)
+     usuarios.push(current_user)
+     @asuntosparavencer = Asunto.all(:conditions => ["fechasigcont > ? and fechasigcont < ? and status_id <> ? and persona_turnado_id in (?)",
+                                                      (Time.now.midnight-1),(Time.now.midnight+2.day),10,usuarios])
+     @asuntosvencidos = Asunto.all(:conditions => ["fechasigcont < ? and status_id <> ? and persona_turnado_id in (?)",Time.now.midnight-1,1,usuarios ])    
   end
 
 end
