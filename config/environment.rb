@@ -23,7 +23,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
     config.gem "configatron"
     config.gem "calendar_date_select"
-    config.gem "active_form"
+#    config.gem "active_form"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
