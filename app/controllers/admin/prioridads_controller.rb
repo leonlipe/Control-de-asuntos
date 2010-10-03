@@ -46,7 +46,7 @@ class Admin::PrioridadsController < ApplicationController
 
     respond_to do |format|
       if @prioridad.save
-        format.html { redirect_to(@prioridad, :notice => 'Prioridad was successfully created.') }
+        format.html { redirect_to(admin_prioridad_url(@prioridad), :notice => 'Prioridad was successfully created.') }
         format.xml  { render :xml => @prioridad, :status => :created, :location => @prioridad }
       else
         format.html { render :action => "new" }
@@ -62,7 +62,7 @@ class Admin::PrioridadsController < ApplicationController
 
     respond_to do |format|
       if @prioridad.update_attributes(params[:prioridad])
-        format.html { redirect_to(@prioridad, :notice => 'Prioridad was successfully updated.') }
+        format.html { redirect_to(admin_prioridad_url(@prioridad), :notice => 'Prioridad was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
