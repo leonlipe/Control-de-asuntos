@@ -2,7 +2,7 @@
 * {margin: 0; padding:0;}
 a {text-decoration:none; color:#fff;}
 #contenedor {margin: 0 auto; width:1024px; overflow: hidden}
-#fca_top {background:url(../images/img/fca_top.jpg) no-repeat; height:61px; overflow: hidden; position: relative}
+#fca_top {background:url(../images/img/fca_top_.jpg) no-repeat; height:61px; overflow: hidden; position: relative}
 #fca_top ul {list-style:none; padding: 0 ; padding-top:33px; padding-left:600px; float:right;}
 #fca_top li {list-style: none; display: block; float:left; font-size:11px; font-family:Arial, Tahoma, Verdana; color:#FFF; padding: 5px 15px; font-weight: lighter; text-align: center}
 #fca_top li:hover, a:hover{ color:#FFCE00}
@@ -84,3 +84,61 @@ a {text-decoration:none; color:#fff;}
 .form1{ width:200px; border-color:#CCCCCC; height: 16px}
 .form2{ width:550px; height: 120px; border-color:#CCCCCC}
 .form3 input{ background-color:#f5f5f5; color:#486A89; padding:3px 10px; border:1px solid #CCCCCC; font-weight: bold}
+table.overview td {border: none}
+table.overview td.separator {border-bottom: 1px solid #e0e0e0; padding: 0; margin: 0}
+table.overview td.label {border: none; min-width: 150px; font-weight: bold; text-align: right; padding: 8px 12px 8px 0}
+table.overview td.label small {font-weight: normal}
+table.overview td.value {width: 100%}
+table.overview td.value input[type="text"] {width: 250px}
+table.index, table.overview {width: 100%; border-collapse: collapse; margin: 1.2em 0}
+table.index td, table.overview td {vertical-align: top; color: #666; font-size: 12px; padding: 8px 0; border-bottom: 1px solid #efefef}
+table.index td.actions {width: auto}
+table.index td.actions a {margin-left: 0.4em}
+table.index td.contact_info {padding-left: 10px}
+table.index td.date {font-size: 10px; white-space: nowrap; padding-top: 10px}
+table.index td.date span {background-color: yellow; color: #000; font-size: 10px; font-weight: bold; padding: 2px; text-transform: uppercase}
+table.index td.contact_info a {}
+table.index div.avatar_subject, table.index div.avatar_subject img.avatar {margin: 0}
+table.index td.actions {text-align: right; padding-left: 1em; white-space: nowrap}
+table th {text-align: left; background: #444444; color: #FFFFFF;}
+table.index tr.odd {background: #dddddd}
+table.index2, table.overview {width: 100%; border-collapse: collapse; margin: 1.2em 0}
+table.index2 td, table.overview td {vertical-align: top; color: #666; font-size: 12px; padding: 8px 0}
+table.indexcomment, table.indexcomment th, table.indexcomment td {width: 80%; border: 1px solid #D4E0EE; border-collapse: collapse; font-family: "Trebuchet MS", Arial, sans-serif; color: #555}
+table.indexcomment caption {font-size: 150%; font-weight: bold; margin: 5px}
+table.indexcomment td,table.indexcomment th {padding: 4px}
+thead table.indexcomment th {text-align: center; background: #E6EDF5; color: #4F76A3; font-size: 100% !important}
+tbody table.indexcomment th {font-weight: bold}
+tbody tr {background: #FCFDFE}
+tbody tr.odd {background: #81ABD3}
+table.indexcomment a:link {color: #718ABE; text-decoration: none}
+table.indexcomment a:visited {color: #718ABE; text-decoration: none}
+table.indexcomment a:hover {color: #718ABE; text-decoration: underline !important}
+tfoot.indexcomment th, tfoot.indexcomment td {font-size: 85%}
+.digg_pagination {background: white;  }
+.digg_pagination a, .digg_pagination span, .digg_pagination em {padding: .2em .5em; display: block; float: left; margin-right: 1px}
+.digg_pagination span.disabled {color: #999; border: 1px solid #DDD}
+.digg_pagination em {font-weight: bold; background: #2E6AB1; color: white; border: 1px solid #2E6AB1}
+.digg_pagination a {text-decoration: none; color: #105CB6; border: 1px solid #9AAFE5}
+.digg_pagination a:hover, .digg_pagination a:focus {color: #003; border-color: #003}
+.digg_pagination .page_info {background: #2E6AB1; color: white; padding: .4em .6em; width: 22em; margin-bottom: .3em; text-align: center}
+.digg_pagination .page_info b {color: #003; background: #6aa6ed; padding: .1em .25em}
+.digg_pagination:after {content: "."; display: block; height: 0; clear: both; visibility: hidden}
+* html .digg_pagination {height: 1%}
+*:first-child+html .digg_pagination {overflow: hidden}
+.apple_pagination {background: #F1F1F1; border: 1px solid #E5E5E5; text-align: center; padding: 1em}
+.apple_pagination a, .apple_pagination span, .digg_pagination em {padding: .2em .3em}
+.apple_pagination span.disabled {color: #AAA}
+.apple_pagination em {font-weight: bold; background: transparent url(apple-circle.gif) no-repeat 50% 50%}
+.apple_pagination a {text-decoration: none; color: black}
+.apple_pagination a:hover, .apple_pagination a:focus {text-decoration: underline}
+.flickr_pagination {text-align: center; padding: .3em}
+.flickr_pagination a, .flickr_pagination span, .digg_pagination em {padding: .2em .5em}
+.flickr_pagination span.disabled {color: #AAA}
+.flickr_pagination em {font-weight: bold; color: #FF0084}
+.flickr_pagination a {border: 1px solid #DDDDDD; color: #0063DC; text-decoration: none}
+.flickr_pagination a:hover, .flickr_pagination a:focus {border-color: #003366; background: #0063DC; color: white}
+.flickr_pagination .page_info {color: #aaa; padding-top: .8em}
+.flickr_pagination .prev_page, .flickr_pagination .next_page {border-width: 2px}
+.flickr_pagination .prev_page {margin-right: 1em}
+.flickr_pagination .next_page {margin-left: 1em}
