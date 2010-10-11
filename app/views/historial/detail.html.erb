@@ -1,0 +1,27 @@
+<%= render :partial => "shared/pendientes"%>
+<h1> Detalle de cambios </h1>
+<%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), "/historial" %>
+
+
+<table class="index">
+	<tr>
+		<th>
+			Nombre del campo modificado
+		</th>
+		<th>
+			Cambios
+		</th>
+	</tr>
+<% @audit.changes.each do |a|%>
+<tr>
+	<td>
+		<%= a[0]%>
+	</td>
+	<td>
+		<b>Valor anterior:</b> <%= a[1][0]%><br/>
+		<b>Valor nuevo:</b> <%= a[1][1]%>
+	</td>
+	
+</tr>
+<%end%>	
+</table>

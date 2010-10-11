@@ -1,4 +1,5 @@
 class Asunto < ActiveRecord::Base
+  acts_as_audited
   # Restricciones
   
   # Relaciones

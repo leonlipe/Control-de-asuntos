@@ -3,18 +3,23 @@ ActionController::Routing::Routes.draw do |map|
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
-  map.resources :historial
   map.resource :session
 
   map.resources :asuntos do |asuntos|
    asuntos.resources :comentarios
   end
+  
+  map.resources :historial, :only => [:index, :show]
+  
   map.reporte '/reporte', :controller => 'reporte', :action => 'index'
   map.reporte '/reporte/afecha', :controller => 'reporte', :action => 'afecha'
   map.reporte '/reporte/afecha/ver', :controller => 'reporte', :action => 'ver'
   map.reporte '/reporte/usuarios', :controller => 'reporte', :action => 'usuarios'
   map.reporte '/reporte/usuarios/ver', :controller => 'reporte', :action => 'ver'
   map.reporte '/reporte/usuarios/all', :controller => 'reporte', :action => 'usuariostodos'
+  map.connect '/historial/detail/:id', :controller => 'historial', :action => 'detail'
+  
+ 
   
   ## Administración
   map.namespace(:admin) do |admin|

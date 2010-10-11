@@ -10,7 +10,11 @@ class HistorialController < ApplicationController
   end
   def show
     @asunto = Asunto.find(params[:id])
-    @movimientos = Cambio.paginate(:page => params[:page], :per_page => 5,:conditions => ["asunto_id = ?", params[:id]])
+    @audits = Audit.paginate(:page => params[:page], :per_page => 5,:conditions => ["auditable_id = ?", params[:id]])
+    #@movimientos = Cambio.paginate(:page => params[:page], :per_page => 5,:conditions => ["asunto_id = ?", params[:id]])
     
   end
+  def detail
+     @audit = Audit.find(params[:id])
+   end
 end

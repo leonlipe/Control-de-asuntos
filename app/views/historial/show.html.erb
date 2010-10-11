@@ -1,13 +1,13 @@
 <%= render :partial => "shared/pendientes"%>
 	<h2 class="title">Detalle del historial</h2>
-	<%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), root_path %>
+	<%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), "/historial" %>
 	
 	<div style="clear: both;">&nbsp;</div>
 	<div class="entry">
 
 
 <p>
-	<% if !@movimientos.empty?%>
+	<% if !@audits.empty?%>
 	<table class="index">
 	<tr>
 		<th>
@@ -19,23 +19,31 @@
 		<th>
 			Descripción del movimiento
 		</th>
+		<th>
+			
+		</th>
+		
 
 	</tr>	
-	<% @movimientos.each do |movimiento|%>
+	<% @audits.each do |audit|%>
 	  <tr>
 		<td>
-			<%= movimiento.created_at %>
+			<%= audit.created_at %>
 		</td>
 		<td>
-			<%= movimiento.user.name %>
+			<%= audit.user.name %>
 		</td>
 		<td>
-			<%= movimiento.descripcion %>
+			<%= traduce_accion(audit.action) %>
+		</td>
+		<td>
+			
+          <%= audit.action == "update" ? link_to (image_tag("icons/001_45.png", {:alt => "Ver", :size => "24x24"}), "/historial/detail/"+audit.id.to_s): "" %> 
 		</td>
 	  </tr>
 	<% end %>
 	</table>	
-	<%= will_paginate(@movimientos, :prev_label => "< Anterior", :next_label => "Siguiente >", :class => "flickr_pagination") %>
+	<%= will_paginate(@audits, :previous_label => "< Anterior", :next_label => "Siguiente >", :class => "flickr_pagination") %>
 	
 	<% else%>
 	<b> No se encontraron movimientos. </b>

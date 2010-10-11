@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :pendientes
   has_many :cambios
   has_many :asuntos
+  has_many :audits
   
   has_many :subordinados, :class_name => "User",
      :foreign_key => "jefe_id"
