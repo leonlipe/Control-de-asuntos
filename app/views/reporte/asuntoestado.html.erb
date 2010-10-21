@@ -1,0 +1,39 @@
+<% content_for :sidebar do -%>
+ <%= render :partial => "sidebar"%>
+<%end %>
+<h2>Resultados</h2>
+<%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), root_path %>
+<div style="clear: both;">&nbsp;</div>
+
+<div class="entry">
+	Resultados de la búsqueda
+	<table class="index">
+
+	  <tr>
+		<th> Fecha </th>
+		<th> Prioridad </th>
+		<th> Categoria </th>
+		<th> Nombre </th>
+		<th> Organizacion </th>
+		<th>  </th>	
+		<th>  </th>	
+	  </tr>
+
+		<% @asuntos.each do |asunto| %>
+	  	<tr>
+			<td><%= asunto.fecha%></td>
+			<td><%= asunto.prioridad.tipo%></td>
+			<td><%= asunto.categoria.tipo%></td>
+			<td><%= asunto.nombresolicitante%></td>
+			<td><%= asunto.organizacion%></td>
+			<td><%= link_to image_tag("icons/001_38.png", {:alt => "Visualizar asunto", :size => "16x16"}), "/reporte/asuntos/estado/ver/3/"+asunto.id.to_s %></td>
+			<td></td>
+
+	  	</tr>
+		<% end %>
+	</table>
+	<%= will_paginate(@asuntos, :prev_label => "< Anterior", :next_label => "Siguiente >", :class => "flickr_pagination") %>
+
+	
+
+</div>

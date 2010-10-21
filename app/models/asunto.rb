@@ -11,6 +11,7 @@ class Asunto < ActiveRecord::Base
   has_many :comentarios
   has_many :cambios
   has_many :asuntos
+  has_many :movimientos
 
   validates_associated :comentarios
   

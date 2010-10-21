@@ -56,6 +56,35 @@
 		<% end %>
 	</table>
 	<%= will_paginate(@asuntos, :prev_label => "< Anterior", :next_label => "Siguiente >", :class => "flickr_pagination") %>
+		
+	<%elsif params[:reporte] == "3" %>
+	<%= @fecha_final%>
+	<table class="index">
+
+	  <tr>
+		<th> Usuario que cambió</th>
+		<th> Usuario anterior </th>
+		<th> Usuario actual </th>
+		<th> Status anterior </th>
+		<th> Status actual </th>
+		<th> Fecha de modificacion </th>
+		<th> Dias del ult. cambio </th>
+	
+	  </tr>
+
+		<% @movimientos.each do |movimiento| %>
+	  	<tr>
+			<td><%= movimiento.user.name%></td>
+			<td><%= movimiento.usuarioanteriorname%></td>
+			<td><%= movimiento.usuarioactualname%></td>
+			<td><%= movimiento.statusanterior%></td>
+			<td><%= movimiento.statusactual%></td>
+			<td><%= movimiento.created_at.strftime("%d/%b/%Y %H:%M")%></td>
+			<td><%= 2%></td>
+
+	  	</tr>
+		<% end %>
+	</table>
 	
 	<%end%>
 

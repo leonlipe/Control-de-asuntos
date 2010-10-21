@@ -14,11 +14,21 @@ class ReporteController < ApplicationController
     if params[:reporte] == "1" # Reporte de asuntos por usuario
       @asuntos = Asunto.paginate(:page => params[:page], :per_page => 5,:conditions => ["persona_turnado_id = ?", params[:persona_id]]) 
     elsif params[:reporte] == "2" # Reporte de asuntos por fecha
-           @asuntos = Asunto.paginate(:page => params[:page], :per_page => 5,:conditions => ["fechasigcont > ? and fechasigcont < ? and persona_turnado_id in (?)", Time.parse(params[:fecha_inicial]),Time.parse(params[:fecha_final]), usuarios])
-    end   
+      @asuntos = Asunto.paginate(:page => params[:page], :per_page => 5,:conditions => ["fechasigcont > ? and fechasigcont < ? and persona_turnado_id in (?)", Time.parse(params[:fecha_inicial]),Time.parse(params[:fecha_final]), usuarios])
+    elsif params[:reporte] == "3" # Reporte de cambios de estado de asuntos
+      @movimientos = Movimiento.all(:conditions => ["asunto_id = ?",params[:asunto]], :order => "created_at")
+    end
   end
 
   def afecha
+   
+  end
+  
+  def asuntoestado
+      usuarios = Array.new(current_user.subordinados)
+      usuarios.push(current_user)
+      @asuntos = Asunto.paginate(:page => params[:page], :per_page => 5,:conditions => ["persona_turnado_id in (?)", usuarios]) 
+     
    
   end
 end

@@ -45,9 +45,11 @@ class AsuntosController < ApplicationController
   # POST /asuntos.xml
   def create
     @asunto = Asunto.new(params[:asunto])
-
+    Asunto.transaction do
     respond_to do |format|
       if @asunto.save
+        insertar_historial(@asunto)    
+        
         format.html { redirect_to(@asunto, :notice => 'Asunto was successfully created.') }
         format.xml  { render :xml => @asunto, :status => :created, :location => @asunto }
       else
@@ -55,22 +57,20 @@ class AsuntosController < ApplicationController
         format.xml  { render :xml => @asunto.errors, :status => :unprocessable_entity }
       end
     end
+      
+    end
   end
 
   # PUT /asuntos/1
   # PUT /asuntos/1.xml
   def update
     @asunto = Asunto.find(params[:id])
+    
     respond_to do |format|
+      Asunto.transaction do 
+      asunto_old = @asunto.clone
       if @asunto.update_attributes(params[:asunto])
-        if session[:movimientoasunto]=="status"
-          insertar_historial("Cambio en el status", @asunto, current_user)
-        elsif session[:movimientoasunto]=="turnar"
-          insertar_historial("Se turnó el asunto", @asunto, current_user)
-        else
-          insertar_historial("Se cambió el asunto", @asunto, current_user)
-          
-        end
+        actualizar_historial(@asunto, asunto_old)    
         format.html { redirect_to(@asunto, :notice => 'Asunto was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -78,11 +78,7 @@ class AsuntosController < ApplicationController
         format.xml  { render :xml => @asunto.errors, :status => :unprocessable_entity }
       end
     end
-  end
-
-  def updateturnar
-    insertar_historial("Cambio en el registro", @asunto, current_user)
-    
+    end
   end
 
   # DELETE /asuntos/1
@@ -109,12 +105,27 @@ class AsuntosController < ApplicationController
        session[:movimientoasunto]="status"
      end
    
-   def insertar_historial(cambio, asunto, user)
-     @cambio = Cambio.new
-     @cambio.descripcion = cambio
-     @cambio.user = user
-     @cambio.asunto = asunto
-     @cambio.save
+   def insertar_historial(asunto_new)
+     movimiento = Movimiento.new
+     movimiento.user = current_user
+     movimiento.asunto = asunto_new
+     movimiento.nombre_actual = asunto_new.personaturnado
+     movimiento.status_actual_id = asunto_new.status.id
+     movimiento.save
    end
+   
+   def actualizar_historial(asunto_new, asunto_old)
+      movimiento = Movimiento.new
+      movimiento.user = current_user
+      movimiento.asunto = asunto_new
+      movimiento.nombre_anterior = asunto_old.personaturnado
+      movimiento.nombre_actual = asunto_new.personaturnado
+      movimiento.status_anterior_id = asunto_old.status.id
+      movimiento.status_actual_id = asunto_new.status.id
+      if ((movimiento.nombre_anterior != movimiento.nombre_actual) || 
+        (movimiento.status_anterior_id != movimiento.status_actual_id))
+        movimiento.save
+      end
+    end
   
 end

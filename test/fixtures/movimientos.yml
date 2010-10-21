@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  asunto: 
+  nombre_anterior: MyString
+  nombre_actual: MyString
+  status_anterior: 
+  status_actual: 
+
+two:
+  user: 
+  asunto: 
+  nombre_anterior: MyString
+  nombre_actual: MyString
+  status_anterior: 
+  status_actual: 
