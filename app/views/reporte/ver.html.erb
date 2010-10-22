@@ -71,7 +71,7 @@
 		<th> Dias del ult. cambio </th>
 	
 	  </tr>
-
+        <% movimientoanterior = nil %>
 		<% @movimientos.each do |movimiento| %>
 	  	<tr>
 			<td><%= movimiento.user.name%></td>
@@ -80,9 +80,10 @@
 			<td><%= movimiento.statusanterior%></td>
 			<td><%= movimiento.statusactual%></td>
 			<td><%= movimiento.created_at.strftime("%d/%b/%Y %H:%M")%></td>
-			<td><%= 2%></td>
+			<td> <%= movimientoanterior.nil? ? "0" : movimiento.created_at - movimientoanterior.created_at %></td>
 
 	  	</tr>
+		<% movimientoanterior = movimiento %>
 		<% end %>
 	</table>
 	
