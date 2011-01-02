@@ -81,6 +81,7 @@ resultado
   	</tr>"
   end
   
+  
   def cell_separator
     "<tr>
   		<td colspan='2' class='separator'></td>

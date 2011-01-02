@@ -27,3 +27,7 @@ es:
   status: "Status"
   audiencia: "Audiencia publica"
   gober: "CC Gobernador electo"
+  activemodel:
+      attribute:
+        asunto:
+          nombresolicitante: "Nombre del solicitante"

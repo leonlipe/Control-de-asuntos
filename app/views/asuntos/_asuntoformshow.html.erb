@@ -1,7 +1,7 @@
 
-<table class="index2">
+<table class="tblShowForm">
 <%=cell_with_clase "Fecha", @asunto.fecha,"" %>
-<%= cell_with_clase "Asunto", @asunto.prioridaddesc,"" %>
+<%=cell_with_clase "Asunto", @asunto.prioridaddesc,"" %>
 <%=cell_with_clase "Categoria", @asunto.categoriadesc,"" %>
 <%=cell_with_clase "Nombre del solicitante", @asunto.nombresolicitante, "" %>
 <%=cell_with_clase "Organizacion", @asunto.organizacion, "" %>
@@ -16,7 +16,7 @@
 <%= cell_with_clase "Status",  @asunto.status.tipo %>
 <%= cell_with_clase "Audiencia publica", (@asunto.audienciapub ? "SI": "NO") %>
 <%= cell_with_clase "CC Gobernador electo", (@asunto.gober ? "SI": "NO") %>
-</p>
+
 <table class="indexcomment">
 	<caption>Comentarios</caption> 
 <tbody>	

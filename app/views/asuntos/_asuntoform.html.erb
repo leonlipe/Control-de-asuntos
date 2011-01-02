@@ -1,24 +1,97 @@
+<p>
 <% form_for(@asunto) do |f| %>
   <%= f.error_messages %>
 
-<table class="index2">
-    <%= cell_with_clase t(:fecha), f.date_select(:fecha), "" %>
-    <%= cell_with_clase "Prioridad", f.select("prioridad_id", Prioridad.all.collect {|p| [ p.tipo, p.id ] } ),"" %>
-    <%= cell_with_clase "Categoria", f.select("categoria_id", Categoria.all.collect {|p| [ p.tipo, p.id ] }  ),""%>
-    <%= cell_with_clase "Nombre del solicitante", f.text_field(:nombresolicitante ,:size => "50"),"" %>
-    <%= cell_with_clase "Organizacion", f.text_field(:organizacion ,:size => "50"),"" %>
-    <%= cell_with_clase "Asunto" ,f.text_field(:asunto,:size => "50") ,""  %>
-    <%= cell_with_clase "Descripcion del asunto" ,f.text_area(:descripcion, :size => "40x10"),""  %>
-    <%= cell_with_clase "Atendido por",f.select("persona_atendio_id", User.all.collect {|p| [ p.name, p.id ] } ),"" %>
-    <%= cell_with_clase "Turnado a",f.select("persona_turnado_id", User.all.collect {|p| [ p.name, p.id ] } ),"" %>
-    <%= cell_with_clase "Telefono", f.text_field(:telefono),""  %>
-    <%= cell_with_clase "Observaciones", f.text_area(:observaciones,:size => "40x10"),""  %>
-    <%= cell_with_clase "Fecha del ultimo contacto", f.date_select(:fechaultcont),"" %>
-    <%= cell_with_clase "Fecha del siguiente contacto" ,f.date_select (:fechasigcont),"" %>
-    <%= cell_with_clase "Status", f.select("status_id", Status.all.collect {|p| [ p.tipo, p.id ] } ),"" %>
-    <%= cell_with_clase "Audiencia publica", f.check_box(:audienciapub),""  %>
-    <%= cell_with_clase "CC Gobernador electo",f.check_box(:gober),""  %>
-</table>
+	<fieldset>
+	<legend>Datos generales</legend>
+
+    <p>
+    <%=  f.label :fecha %>
+    <%=  f.date_select(:fecha) %>
+    </p>
+	
+    <p>
+	<%=  f.label :nombresolicitante, "Nombre del solicitante" %>    
+	<%=  f.text_field(:nombresolicitante ,:size => "50", :class => "clTextInput") %>
+    </p>
+		
+    <p>
+	<%=  f.label :organizacion %>    
+	<%=   f.text_field(:organizacion ,:size => "50", :class => "clTextInput") %>
+	</p>
+	
+    <p>
+	<%=  f.label :asunto %>    
+	<%=  f.text_field(:asunto,:size => "50", :class => "clTextInput")   %>
+	</p>
+	
+    <p>
+	<%=  f.label :descripcion %>    
+	<%=  f.text_area(:descripcion, :size => "40x10", :class => "clAreaInput")  %>
+	</p>
+	
+    <p>
+	<%=  f.label :telefono %>    
+	<%=  f.text_field(:telefono, :class => "clTextInput") %>
+	</p>
+
+    <p>
+	<%=  f.label :observaciones %>    
+	<%=   f.text_area(:observaciones,:size => "40x10", :class => "clAreaInput")  %>
+    </p>
+	
+	</fieldset>
+	
+	<fieldset>
+	<legend>Datos del asunto</legend>
+	
+    <p>
+	<%=  f.label :persona_atendido_id %>    
+	<%=  f.select("persona_atendio_id", User.all.collect {|p| [ p.name, p.id ] } , :class => "clSelectInput") %>
+	</p>
+	
+    <p>
+	<%=  f.label :persona_turnado_id %>    
+	<%=  f.select("persona_turnado_id", User.all.collect {|p| [ p.name, p.id ] } , :class => "clSelectInput" ) %>
+	</p>
+
+    <p>
+    <%=  f.label :prioridad_id %>
+    <%=  f.select("prioridad_id", Prioridad.all.collect {|p| [ p.tipo, p.id ] } , :class => "clSelectInput" ) %>
+	</p>
+		
+    <p>
+    <%=  f.label :categoria_id %>
+	<%=   f.select("categoria_id", Categoria.all.collect {|p| [ p.tipo, p.id ] } , :class => "clSelectInput"  )%>
+	</p>
+	    
+    <p>
+	<%=  f.label :fechaultcont , "Fecha del ultimo contacto"%>    
+	<%=   f.date_select(:fechaultcont) %>
+	</p>
+	
+    <p>
+	<%=  f.label :fechasigcont , "Fecha del siguiente contacto"%>    
+	<%=   f.date_select (:fechasigcont)%>
+	</p>
+	
+    <p>
+	<%=  f.label :status_id %>    
+	<%=   f.select("status_id", Status.all.collect {|p| [ p.tipo, p.id ] }  , :class => "clSelectInput")%>
+	</p>
+	
+    <p>
+	<%=  f.label :audienciapub, "Audiencia publica" %>    
+	<%=  f.check_box(:audienciapub , :class => "clCheckBoxInput")  %>
+	</p>
+	
+    <p>
+	<%=  f.label :gober, "CC Goberandor"%>    
+	<%=  f.check_box(:gober, :class => "clCheckBoxInput") %>
+    </p>
+	
+	</fieldset>
+    
 &nbsp;
   <p>
     <%= f.submit 'Aceptar' %>
