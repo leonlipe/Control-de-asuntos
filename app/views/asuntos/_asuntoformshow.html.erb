@@ -1,21 +1,21 @@
 
-<table class="tblShowForm">
-<%=cell_with_clase "Fecha", @asunto.fecha,"" %>
-<%=cell_with_clase "Asunto", @asunto.prioridaddesc,"" %>
-<%=cell_with_clase "Categoria", @asunto.categoriadesc,"" %>
-<%=cell_with_clase "Nombre del solicitante", @asunto.nombresolicitante, "" %>
-<%=cell_with_clase "Organizacion", @asunto.organizacion, "" %>
-<%=cell_with_clase "Asunto", @asunto.asunto %>
-<%=cell_with_clase "Descripcion", @asunto.descripcion %>
-<%=cell_with_clase "Atendido por", @asunto.personaatendio %>
-<%=cell_with_clase "Turnado a", @asunto.personaturnado %>
-<%=cell_with_clase "Telefono", @asunto.telefono %>
-<%=cell_with_clase "Observaciones", @asunto.observaciones %>
-<%=cell_with_clase "Fecha del ultimo contacto", @asunto.fechaultcont %>
-<%=cell_with_clase "Fecha del siguiente contacto", @asunto.fechasigcont %>
-<%= cell_with_clase "Status",  @asunto.status.tipo %>
-<%= cell_with_clase "Audiencia publica", (@asunto.audienciapub ? "SI": "NO") %>
-<%= cell_with_clase "CC Gobernador electo", (@asunto.gober ? "SI": "NO") %>
+<table class="overview">
+<%=cell "Fecha", @asunto.fecha %>
+<%=cell "Nombre del solicitante", @asunto.nombresolicitante%>
+<%=cell "Organizacion", @asunto.organizacion %>
+<%=cell "Asunto", @asunto.asunto %>
+<%=cell "Descripcion", @asunto.descripcion %>
+<%=cell "Telefono", @asunto.telefono %>
+<%=cell "Observaciones", @asunto.observaciones %>
+<%=cell "Atendido por", @asunto.personaatendio %>
+<%=cell "Turnado a", @asunto.personaturnado %>
+<%=cell "Prioridad", @asunto.prioridaddesc %>
+<%=cell "Categoria", @asunto.categoriadesc%>
+<%=cell "Fecha del ultimo contacto", @asunto.fechaultcont %>
+<%=cell "Fecha del siguiente contacto", @asunto.fechasigcont %>
+<%= cell "Status",  @asunto.status.tipo %>
+<%= cell "Audiencia publica", (@asunto.audienciapub ? "SI": "NO") %>
+<%= cell "CC Gobernador", (@asunto.gober ? "SI": "NO") %>
 
 <table class="indexcomment">
 	<caption>Comentarios</caption> 

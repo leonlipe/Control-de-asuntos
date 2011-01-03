@@ -47,7 +47,8 @@ body {
 	color:#FFCE00;
 	}
 	
-	#banner {	background:url(.jpg) no-repeat;
+	#banner {	
+	background:url(../images/img/banner.jpg) no-repeat;
 	background-color: #81ABD3;
 	clear:both;
 	overflow: hidden;

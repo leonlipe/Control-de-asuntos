@@ -23,10 +23,13 @@ float: left;
 margin-left: -155px; /*width of left column*/
 width: 150px; /*width of labels. Should be smaller than left column (155px) to create some right margin*/
 text-align: right;
+font: 12px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+font-weight: bold;
 }
 
 form input[type="text"]{ /*width of text boxes. IE6 does not understand this attribute*/
 width: 180px;
+font: 12px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 }
 
 form textarea{

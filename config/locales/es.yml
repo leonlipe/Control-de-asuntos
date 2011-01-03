@@ -11,23 +11,31 @@ es:
     abbr_day_names: [D, L, M, M, J, V, S]
     month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
     abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
-  fecha: "Fecha"
-  prioridad: "Prioridad"
-  categoria: "Categoria"
-  solicitante: "Nombre del solicitante"
-  organizacion: "Organizacion"
-  asunto: "Asunto"
-  descripcion: "Descripcion del asunto"
-  atendido: "Atendido por"
-  turnado: "Turnado a"
-  telefono: "Telefono"
-  observaciones: "Observaciones"
-  fecha_ult: "Fecha del ultimo contacto"
-  fecha_sig: "Fecha del siguiente contacto"
-  status: "Status"
-  audiencia: "Audiencia publica"
-  gober: "CC Gobernador electo"
-  activemodel:
-      attribute:
-        asunto:
-          nombresolicitante: "Nombre del solicitante"
+  activerecord:
+    models:
+      asunto: "Asuntos"
+    attributes:
+      asunto:
+        nombresolicitante: "Nombre del solicitante"
+    errors:
+      messages:
+        taken: "Ya ha sido tomado"
+        record_invalid: "La validación ha fallado: %{errors}"
+        blank: "No puede ir vacio."
+        inclusion: "no está incluido en la lista"
+        exclusion: "está reservado"
+        invalid: "no es válido"
+        confirmation: "no es una confirmación"
+        accepted : "debe ser aceptado"
+        empty: "no puede estar vacío"
+        too_long: "es demasiado largo (máximo %d caracteres)"
+        too_short: "es demasiado corto (mínimo %d caracteres)"
+        wrong_length: "no tiene la longitud correcta (debería tener %d caracteres)"
+        taken: "ya ha sido incluido"
+        not_a_number: "debe ser un número"  
+      full_messages:
+        format: "{{attribute}} {{message}}"              
+      template:
+        header: "Existen errores que impiden el procesamiento de la informacion"
+        body: "Compruebe los siguientes campos"
+        

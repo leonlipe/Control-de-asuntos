@@ -22,8 +22,8 @@ class ApplicationController < ActionController::Base
       usuarios = Array.new(current_user.subordinados)
       usuarios.push(current_user)
       @asuntosparavencer = Asunto.all(:conditions => ["fechasigcont > ? and fechasigcont < ? and status_id <> ? and persona_turnado_id in (?)",
-       (Time.now.midnight-1),(Time.now.midnight+2.day),10008,usuarios])
-      @asuntosvencidos = Asunto.all(:conditions => ["fechasigcont < ? and status_id <> ? and persona_turnado_id in (?)",Time.now.midnight-1,10008,usuarios ])    
+       (Time.now.midnight-1),(Time.now.midnight+2.day),configatron.status_terminado,usuarios])
+      @asuntosvencidos = Asunto.all(:conditions => ["fechasigcont < ? and status_id <> ? and persona_turnado_id in (?)",Time.now.midnight-1,configatron.status_terminado,usuarios ])    
     end
   end
   

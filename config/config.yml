@@ -4,28 +4,32 @@
 development: &local
     site_name: Control de asuntos
     site_namemobile: Control de asuntos
-    site_url: baseapp2.local
+    site_url: asuntos
     
     company_name: redleon.net
-    admin_email: leon@redleon.net
+    admin_email: admin@localhost
     
     support_name: Control de asuntos
-    support_email: soporte@redleon.net
+    support_email: admin@localhost
     
     site_envnote: Local Server
+    status_terminado: 10
+    
 
 production:
     site_name: Control de asuntos
     site_namemobile: Control de asuntos
-    site_url: baseapp2.local
+    site_url: ausuntos
     
     company_name: redleon.net
-    admin_email: leon@redleon.net
+    admin_email: admin@localhost
     
     support_name: Control de asuntos
-    support_email: soporte@redleon.net
+    support_email: admin@localhost
     
     site_envnote: Production Server
+    
+    status_terminado: 10
   
 staging:
   <<: *local
