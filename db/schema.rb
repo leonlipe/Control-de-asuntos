@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101013165407) do
+ActiveRecord::Schema.define(:version => 20110113222507) do
+
+  create_table "adjuntos", :force => true do |t|
+    t.string   "nombrearchivo"
+    t.string   "tipo_contenido"
+    t.binary   "datos"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "asuntos", :force => true do |t|
     t.date     "fecha"
