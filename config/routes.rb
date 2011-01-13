@@ -28,7 +28,8 @@ ActionController::Routing::Routes.draw do |map|
      admin.resources :statuses
      admin.resources  :categorias 
      admin.resources :prioridads
-     admin.resources :roles, :users  
+     admin.resources :roles
+     admin.resources :users  
      admin.root :controller => 'dashboard', :action => 'index'
    end
 

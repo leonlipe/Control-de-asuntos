@@ -3,7 +3,7 @@
 
 <div style="clear: both;">&nbsp;</div>
 <div class="entry">
-<% form_for :categoria, :url => admin_categorias_path do |f| %>
+<% form_for [:admin, @categoria] do |f| %>
   <%= f.error_messages %>
 
 <p>

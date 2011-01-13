@@ -3,7 +3,7 @@
 
 <div style="clear: both;">&nbsp;</div>
 <div class="entry">
-<% form_for(:status, :url => admin_statuses_path) do |f| %>
+<% form_for [:admin, @status ] do |f| %>
   <%= f.error_messages %>
 
 <p>
