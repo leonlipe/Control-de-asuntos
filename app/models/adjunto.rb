@@ -1,6 +1,5 @@
 class Adjunto < ActiveRecord::Base
   
-  belongs_to :asunto
   
   
  def uploaded_file=(incoming_file)
