@@ -18,4 +18,17 @@
 
 <%end %>
 
+
+<% form_for ([@asunto, @asunto.adjuntos.build]) do |f| %>
+
+<p>
+    <%= f.label  'Adjuntar archivo' %>
+    <%= f.file_field :adjunto  %>
+  <div class="actions">
+    <%= f.submit 'Enviar adjunto'%>
+  </div>
+</p>
+
+
+<%end %>
 </div>

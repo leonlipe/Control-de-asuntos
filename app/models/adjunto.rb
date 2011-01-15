@@ -1,4 +1,8 @@
 class Adjunto < ActiveRecord::Base
+  
+  belongs_to :asunto
+  
+  
  def uploaded_file=(incoming_file)
         self.nombrearchivo = incoming_file.original_filename
         self.tipo_contenido = incoming_file.content_type

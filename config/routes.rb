@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
 
   map.resources :asuntos do |asuntos|
-   asuntos.resources :comentarios
+   asuntos.resources :comentarios, :adjuntos
   end
   
   map.resources :historial, :only => [:index, :show]
