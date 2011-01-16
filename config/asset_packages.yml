@@ -6,6 +6,8 @@
       - dragdrop
       - controls
       - application
+    - secondary:
+      - multifileup
     stylesheets: 
     - base: 
       - estilo

@@ -6,7 +6,7 @@ a {text-decoration:none; color:#fff;}
 #fca_top ul {list-style:none; padding: 0 ; padding-top:33px; padding-left:600px; float:right;}
 #fca_top li {list-style: none; display: block; float:left; font-size:11px; font-family:Arial, Tahoma, Verdana; color:#FFF; padding: 5px 15px; font-weight: lighter; text-align: center}
 #fca_top li:hover, a:hover{ color:#FFCE00}
-#banner {background:url(.jpg) no-repeat; background-color: #81ABD3; clear:both; overflow: hidden; position: relative}
+#banner {background:url(../images/img/banner.jpg) no-repeat; background-color: #81ABD3; clear:both; overflow: hidden; position: relative}
 #menu {position: relative; background-color: #0F3C65; overflow: hidden}
 #menu ul {list-style:none; padding: 0 ;}
 #menu li {list-style: none; float:left}
@@ -142,10 +142,13 @@ tfoot.indexcomment th, tfoot.indexcomment td {font-size: 85%}
 .flickr_pagination .prev_page, .flickr_pagination .next_page {border-width: 2px}
 .flickr_pagination .prev_page {margin-right: 1em}
 .flickr_pagination .next_page {margin-left: 1em}
+#attachment_list #pending_files{ list-style:none;padding:0}
+#attachment_list li {padding:0 0 0.5em 21px;background:url('/images/attachment.png') no-repeat 0 2px}
+#attachment_list li #remove {margin-left:1em}
 form p{ width: 300px; clear: left; margin: 0; padding: 5px 0 8px 0; padding-left: 155px;  height: 1%; font-family: Arial, "MS Trebuchet", sans-serif}
 form fieldset {clear: both; font-size: 100%; border-color: #000000; border-width: 1px 0 0 0; border-style: solid none none none; padding: 10px; margin: 0 0 0 0;}
-form label{ font-weight: bold; float: left; margin-left: -155px;  width: 150px;  text-align: right}
-form input[type="text"]{  width: 180px}
+form label{ font-weight: bold; float: left; margin-left: -155px;  width: 150px;  text-align: right; font: 12px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif; font-weight: bold}
+form input[type="text"]{  width: 180px; font: 12px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif}
 form textarea{ width: 250px; height: 150px}
 table.tblShowForm {width: 100%; border-collapse: collapse; margin: 1.2em 0 }
-table.tblShowForm td {vertical-align: top; text-align: right; color: #666; font-size: 12px; padding: 8px 0}
+table.tblShowForm td {vertical-align: top; color: #666; font-size: 12px; padding: 8px 0}

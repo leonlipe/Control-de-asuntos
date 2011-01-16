@@ -17,10 +17,11 @@
 
 
 <%end %>
+<p>
+	<b>Archivos adjuntos:</b>
+	<div id="attachment_list">
+	<%= render :partial => "attachment", :collection => @asunto.adjuntos %>
+	</div>
+</p>
 
-
-
-
-
-<%end %>
 </div>

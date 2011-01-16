@@ -1,22 +1,22 @@
 class Adjunto < ActiveRecord::Base
+  has_attached_file :adjunto,
+                    :url  => "/adjuntos/:id",
+                    :path => ":rails_root/adjuntos/docs/:id/:style/:basename.:extension"
   
+  belongs_to :attachable, :polymorphic => true
+  def url(*args)
+    adjunto.url(*args)
+  end
   
+  def name
+    adjunto_file_name
+  end
   
- def uploaded_file=(incoming_file)
-        self.nombrearchivo = incoming_file.original_filename
-        self.tipo_contenido = incoming_file.content_type
-        self.datos = incoming_file.read
-    end
-
-    def nombrearchivo=(new_filename)
-        write_attribute("nombrearchivo", sanitize_filename(new_filename))
-    end
-
-    private
-    def sanitize_filename(nombrearchivo)
-        #get only the filename, not the whole path (from IE)
-        just_filename = File.basename(nombrearchivo)
-        #replace all non-alphanumeric, underscore or periods with underscores
-        just_filename.gsub(/[^\w\.\-]/, '_')
-    end
+  def content_type
+    adjunto_content_type
+  end
+  
+  def file_size
+    adjunto_file_size
+  end
 end

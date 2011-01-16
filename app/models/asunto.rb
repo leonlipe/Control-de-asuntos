@@ -12,6 +12,7 @@ class Asunto < ActiveRecord::Base
   has_many :cambios
   has_many :asuntos
   has_many :movimientos
+  has_many :adjuntos, :as => :attachable, :dependent => :destroy
 
   validates_associated :comentarios
   
@@ -19,6 +20,14 @@ class Asunto < ActiveRecord::Base
   validates_presence_of :nombresolicitante, :message => 'El nombre de solicitante es obligatorio'
   validates_presence_of :asunto, :message => 'El asunto es obligatorio'
   validates_presence_of :descripcion, :message => 'La descripcion del asunto es obligatorio'
+  
+  Max_Attachments = 5
+  Max_Attachment_Size = 3.megabyte
+  
+  def validate_attachments
+     errors.add_to_base("Demasiados archivos el maximo es: #{Max_Attachments}") if assets.length > Max_Attachments
+     assets.each {|a| errors.add_to_base("#{a.name} is over #{Max_Attachment_Size/1.megabyte}MB") if a.file_size > Max_Attachment_Size}
+  end
   
   
   def prioridaddesc

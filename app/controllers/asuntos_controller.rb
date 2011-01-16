@@ -39,12 +39,15 @@ class AsuntosController < ApplicationController
   # GET /asuntos/1/edit
   def edit
     @asunto = Asunto.find(params[:id])
+    @allowed = Asunto::Max_Attachments - @asunto.adjuntos.count
   end
 
   # POST /asuntos
   # POST /asuntos.xml
   def create
     @asunto = Asunto.new(params[:asunto])
+    process_file_uploads(@asunto)
+    
     Asunto.transaction do
     respond_to do |format|
       if @asunto.save
@@ -65,6 +68,9 @@ class AsuntosController < ApplicationController
   # PUT /asuntos/1.xml
   def update
     @asunto = Asunto.find(params[:id])
+    
+    process_file_uploads(@asunto)
+    
     
     respond_to do |format|
       Asunto.transaction do 
@@ -126,6 +132,14 @@ class AsuntosController < ApplicationController
         (movimiento.status_anterior_id != movimiento.status_actual_id))
         movimiento.save
       end
+    end
+    
+    def process_file_uploads(task)
+        i = 0
+        while params[:attachment]['file_'+i.to_s] != "" && !params[:attachment]['file_'+i.to_s].nil?
+            task.adjuntos.build(:adjunto => params[:attachment]['file_'+i.to_s])
+            i += 1
+        end
     end
   
 end

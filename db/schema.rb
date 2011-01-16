@@ -9,15 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110113222507) do
+ActiveRecord::Schema.define(:version => 20110115180816) do
 
   create_table "adjuntos", :force => true do |t|
-    t.string   "nombrearchivo"
-    t.string   "tipo_contenido"
-    t.binary   "datos"
+    t.string   "adjunto_file_name"
+    t.string   "adjunto_content_type"
+    t.integer  "adjunto_file_size"
+    t.string   "attachable_type"
+    t.integer  "attachable_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "adjuntos", ["attachable_id", "attachable_type"], :name => "index_adjuntos_on_attachable_id_and_attachable_type"
 
   create_table "asuntos", :force => true do |t|
     t.date     "fecha"
