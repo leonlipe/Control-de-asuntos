@@ -17,13 +17,28 @@ class ReporteController < ApplicationController
       @asuntos = Asunto.paginate(:page => params[:page], :per_page => 5,:conditions => ["fechasigcont > ? and fechasigcont < ? and persona_turnado_id in (?)", Time.parse(params[:fecha_inicial]),Time.parse(params[:fecha_final]), usuarios])
     elsif params[:reporte] == "3" # Reporte de cambios de estado de asuntos
       @movimientos = Movimiento.all(:conditions => ["asunto_id = ?",params[:asunto]], :order => "created_at")
-    end
+     elsif params[:reporte] == "4" # Reporte multicosas
+       if  params[:nombresolicitante].nil? or params[:nombresolicitante] == ''  
+         params[:nombresolicitante] = "%"
+         end
+          if  params[:organizacion].nil?   or params[:organizacion] == ''  
+            params[:organizacion] = "%"
+            end
+             if  params[:asunto].nil?   or params[:asunto] == ''  
+                params[:asunto] = "%"
+                end
+      @asuntos = Asunto.paginate(:page => params[:page], :per_page => 5,:conditions =>
+       ["nombresolicitante like ? and organizacion like ? and asunto like ? and prioridad_id = ? and categoria_id = ? and status_id = ?", 
+         params[:nombresolicitante], params[:organizacion], params[:asunto], params[:prioridad], params[:categoria], params[:status] ])
+    end     
   end
 
   def afecha
    
   end
-  
+  def multi
+   
+  end
   def asuntoestado
       usuarios = Array.new(current_user.subordinados)
       usuarios.push(current_user)

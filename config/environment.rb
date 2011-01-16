@@ -5,6 +5,8 @@ RAILS_GEM_VERSION = '2.3.8' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
+require 'smtp-tls'
+
 
 Rails::Initializer.run do |config|
 
@@ -47,4 +49,13 @@ Rails::Initializer.run do |config|
 end
 require "will_paginate"
 require "#{RAILS_ROOT}/app/overrides/all"
-
+ActionMailer::Base.smtp_settings =
+{
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => "gmail.com",
+    :user_name => "test@redleon.net",#not with @gmail.com
+    :password => "t3mp0r4l",
+    :authentication => :plain,
+    :enable_starttls_auto => true
+}

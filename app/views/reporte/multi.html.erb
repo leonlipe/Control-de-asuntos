@@ -1,0 +1,64 @@
+<% content_for :sidebar do -%>
+ <%= render :partial => "sidebar"%>
+<%end %>
+
+<h2>Resultados</h2>
+<div style="clear: both;">&nbsp;</div>
+<div class="entry">
+Seleccione los datos para generar el reporte.
+<% form_tag('/reporte/multi/ver', :method => :post) do %>
+
+<p>
+	<fieldset>
+	<legend>Datos generales</legend>
+
+  
+	
+    <p>
+	<%=  label_tag  "Nombre del solicitante" %>    
+	<%=  text_field_tag "nombresolicitante" %>
+    </p>
+		
+    <p>
+	<%=  label_tag "Organizacion" %>    
+	<%=   text_field_tag "organizacion" %>
+	</p>
+	
+    <p>
+	<%=  label_tag "Asunto" %>    
+	<%=  text_field_tag "asunto"  %>
+	</p>
+	
+
+	
+	</fieldset>
+	
+	<fieldset>
+	<legend>Datos del asunto</legend>
+	
+   
+
+    <p>
+    <%=  label_tag "Prioridad"%>
+    <%= select_tag "prioridad", options_from_collection_for_select(Prioridad.all.collect, "id", "tipo")%>
+	</p>
+		
+    <p>
+    <%=  label_tag "Categoria" %>
+    <%= select_tag "categoria", options_from_collection_for_select(Categoria.all.collect , "id", "tipo")%>
+	</p>
+
+    <p>
+	<%=  label_tag "Status" %>    
+    <%= select_tag "status", options_from_collection_for_select(Status.all.collect , "id", "tipo")%>
+	</p>
+	<%= hidden_field_tag 'reporte', '4'%>
+    
+	</fieldset>
+  
+&nbsp;
+  <p>
+    <%= submit_tag 'Aceptar' %>
+  </p>
+<% end %>
+</div>

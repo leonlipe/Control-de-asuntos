@@ -18,9 +18,13 @@ ActionController::Routing::Routes.draw do |map|
   map.reporte '/reporte/afecha/ver', :controller => 'reporte', :action => 'ver'
   map.reporte '/reporte/asuntos/estado/ver/:reporte/:asunto', :controller => 'reporte', :action => 'ver'
   map.reporte '/reporte/usuarios', :controller => 'reporte', :action => 'usuarios'
+  map.reporte '/reporte/multi', :controller => 'reporte', :action => 'multi'
+  map.reporte '/reporte/multi/ver', :controller => 'reporte', :action => 'ver'
   map.reporte '/reporte/usuarios/ver', :controller => 'reporte', :action => 'ver'
   map.reporte '/reporte/usuarios/all', :controller => 'reporte', :action => 'usuariostodos'
   map.connect '/historial/detail/:id', :controller => 'historial', :action => 'detail'
+  map.mail  '/mail',  :controller => 'correo', :action => 'mailDeneme'
+  
   
  
   

@@ -52,6 +52,7 @@ class AsuntosController < ApplicationController
     respond_to do |format|
       if @asunto.save
         insertar_historial(@asunto)    
+        # UserMailer.deliver_registration_confirmation("leon@redleon.net", "Asunto creado", @asunto.asunto)
         
         format.html { redirect_to(@asunto, :notice => 'Asunto was successfully created.') }
         format.xml  { render :xml => @asunto, :status => :created, :location => @asunto }
@@ -136,10 +137,12 @@ class AsuntosController < ApplicationController
     
     def process_file_uploads(task)
         i = 0
+        if !(params[:attachment].nil?)
         while params[:attachment]['file_'+i.to_s] != "" && !params[:attachment]['file_'+i.to_s].nil?
             task.adjuntos.build(:adjunto => params[:attachment]['file_'+i.to_s])
             i += 1
         end
+      end
     end
   
 end
