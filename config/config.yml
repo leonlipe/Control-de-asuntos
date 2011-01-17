@@ -14,6 +14,7 @@ development: &local
     
     site_envnote: Local Server
     status_terminado: 10
+    envia_email: false
     
 
 production:
@@ -30,6 +31,8 @@ production:
     site_envnote: Production Server
     
     status_terminado: 10
+    envia_email: false
+    
   
 staging:
   <<: *local

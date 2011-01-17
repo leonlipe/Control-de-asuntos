@@ -52,8 +52,9 @@ class AsuntosController < ApplicationController
     respond_to do |format|
       if @asunto.save
         insertar_historial(@asunto)    
-        # UserMailer.deliver_registration_confirmation("leon@redleon.net", "Asunto creado", @asunto.asunto)
-        
+        if (configatron.envia_email)
+          UserMailer.deliver_registration_confirmation(current_user.email, "Asunto creado", "Se ha creado un asunto y ha sido asignado a su usuario, por favor verifiquelo. Asunto:"+@asunto.asunto)
+        end
         format.html { redirect_to(@asunto, :notice => 'Asunto was successfully created.') }
         format.xml  { render :xml => @asunto, :status => :created, :location => @asunto }
       else
@@ -78,6 +79,9 @@ class AsuntosController < ApplicationController
       asunto_old = @asunto.clone
       if @asunto.update_attributes(params[:asunto])
         actualizar_historial(@asunto, asunto_old)    
+         if (configatron.envia_email)
+            UserMailer.deliver_registration_confirmation(current_user.email, "Asunto actualizado", "Se ha actualizado un asunto que necesita de su atencion, por favor verifiquelo. Asunto:"+@asunto.asunto)
+          end
         format.html { redirect_to(@asunto, :notice => 'Asunto was successfully updated.') }
         format.xml  { head :ok }
       else
