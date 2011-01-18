@@ -9,7 +9,7 @@ class ReporteController < ApplicationController
   end
     
   def ver
-    usuarios = Array.new(current_user.subordinados)
+    usuarios = Array.new(current_user.users)
     usuarios.push(current_user)
     if params[:reporte] == "1" # Reporte de asuntos por usuario
       @asuntos = Asunto.paginate(:page => params[:page], :per_page => 5,:conditions => ["persona_turnado_id = ?", params[:persona_id]]) 
@@ -40,7 +40,7 @@ class ReporteController < ApplicationController
    
   end
   def asuntoestado
-      usuarios = Array.new(current_user.subordinados)
+      usuarios = Array.new(current_user.users)
       usuarios.push(current_user)
       @asuntos = Asunto.paginate(:page => params[:page], :per_page => 5,:conditions => ["persona_turnado_id in (?)", usuarios]) 
      

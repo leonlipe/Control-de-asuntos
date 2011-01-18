@@ -1,6 +1,6 @@
 class HistorialController < ApplicationController
   def index
-     usuarios = Array.new(current_user.subordinados)
+     usuarios = Array.new(current_user.users)
      usuarios.push(current_user)
     # @asuntos = Asunto.all(:conditions =>  ["status_id = 1", {:persona_turnado_id => current_user.subordinados }])
       #@asuntos = Asunto.all(:conditions =>  {:status_id => 1, :persona_turnado_id => current_user.subordinados })

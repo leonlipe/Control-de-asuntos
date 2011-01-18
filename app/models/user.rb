@@ -8,9 +8,9 @@ class User < ActiveRecord::Base
   has_many :audits
   has_many :movimentos
   
-  has_many :subordinados, :class_name => "User",
+  has_many :users, :class_name => "User",
      :foreign_key => "jefe_id"
-   belongs_to :manager, :class_name => "User"
+  belongs_to :user, :class_name => "User"
   
   
   # ---------------------------------------
@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :name, :password, :password_confirmation
+  attr_accessible :login, :email, :name, :password, :password_confirmation, :user, :jefe_id
 
 
 
