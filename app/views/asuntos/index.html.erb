@@ -47,6 +47,7 @@
 	<td><%= asunto.gober%></td>
 	-->
 	
+    <td><%= link_to image_tag("icons/001_38.png", {:alt => "Imprimir asunto", :size => "16x16"}), asunto+".pdf" %></td>
     <td><%= link_to image_tag("icons/001_38.png", {:alt => "Visualizar asunto", :size => "16x16"}), asunto %></td>
     <td><%= link_to image_tag("icons/001_45.png", {:alt => "Editar asunto", :size => "16x16"}), edit_asunto_path(asunto) %></td>
     <td><%= link_to image_tag("icons/001_05.png", {:alt => "Borrar asunto", :size => "16x16"}), asunto, :confirm => 'Está seguro?', :method => :delete %></td>
