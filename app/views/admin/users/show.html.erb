@@ -16,6 +16,16 @@
 	<%= cell "Password", "#{"*"*8}" %>
 	
 	<%= cell_separator %>
+	<%= cell "Roles", "" %>
+
+	<%= cell_separator %>
+	
+	
+	<% for role in @user.roles %>
+    <%= cell "", role.name %>
+    <% end %>
+	
+	<%= cell_separator %>
 	
 	<%= cell "Cuenta creada:", @user.created_at.to_s(:long) %>
 	<%= cell "Ultima actualización", @user.updated_at.to_s(:long) %>

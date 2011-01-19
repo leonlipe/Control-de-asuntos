@@ -68,6 +68,8 @@ class Admin::UsersController < ApplicationController
 
 
    def update
+     params[:user][:role_ids] ||= []
+
      @user = User.find(params[:id])
 
      respond_to do |format|
