@@ -40,17 +40,17 @@ Seleccione los datos para generar el reporte.
 
     <p>
     <%=  label_tag "Prioridad"%>
-    <%= select_tag "prioridad", options_from_collection_for_select(Prioridad.all.collect, "id", "tipo")%>
+    <%= select_tag "prioridad", options_from_collection_for_select(Prioridad.all.collect, "id", "tipo") %>
 	</p>
 		
     <p>
     <%=  label_tag "Categoria" %>
-    <%= select_tag "categoria", options_from_collection_for_select(Categoria.all.collect , "id", "tipo")%>
+    <%= select_tag "categoria", options_from_collection_for_select(Categoria.all.collect , "id", "tipo"), :include_blank => "-- Ninguno --"%>
 	</p>
 
     <p>
 	<%=  label_tag "Status" %>    
-    <%= select_tag "status", options_from_collection_for_select(Status.all.collect , "id", "tipo")%>
+    <%= select_tag "status", options_from_collection_for_select(Status.all.collect , "id", "tipo"), :include_blank => "-- Ninguno --"%>
 	</p>
 	<%= hidden_field_tag 'reporte', '4'%>
     
