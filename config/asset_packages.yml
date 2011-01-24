@@ -1,6 +1,9 @@
 ---
     javascripts: 
     - base: 
+      - jquery
+      - jquery-ui
+      - jrails
       - prototype
       - effects
       - dragdrop

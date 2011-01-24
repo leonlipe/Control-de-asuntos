@@ -1,6 +1,7 @@
  body {margin: 0; font-size:12px; font-family:Tahoma, Futura, Verdana, Arial; color: #333; background-color:#81ABD3}
 * {margin: 0; padding:0;}
 a {text-decoration:none; color:#fff;}
+.ablack {text-decoration:none; color:#000;}
 #contenedor {margin: 0 auto; width:1024px; overflow: hidden}
 #fca_top {background:url(../images/img/fca_top_.jpg) no-repeat; height:61px; overflow: hidden; position: relative}
 #fca_top ul {list-style:none; padding: 0 ; padding-top:33px; padding-left:600px; float:right;}

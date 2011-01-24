@@ -1,0 +1,57 @@
+<% if !@asuntos.empty? %>
+<table class="index">
+
+  <tr>
+	<th> <%= sort_td_class_helper "fecha" %>
+		<%= sort_link_helper "Fecha", "fecha" %> </th>
+	<th> Prioridad </th>
+	<th> Nombre </th>
+	<th> Organizacion </th>
+	<th>  </th>
+	<!--<th> Asunto </th>
+	<th> Descripción del asunto</th>
+	<th> Atendido por </th>
+	<th> Turnado a </th>
+	<th> Telefono</th>
+	<th> Observaciones </th>
+	<th> Fecha ultimo contacto</th>
+	<th> Fecha siguiente contacto </th>
+	<th> Status </th>
+	<th> Audiencia publica </th>
+	<th> CC. Gobernador electo </th>
+-->
+  </tr>
+
+<% @asuntos.each do |asunto| %>
+  <tr class="<%= cycle("even","odd")%>">
+	<td><%= asunto.fecha%></td>
+	<td><%= asunto.prioridad.tipo%></td>
+	<td><%= asunto.nombresolicitante%></td>
+	<td><%= asunto.organizacion%></td>
+	<!--
+	<td><%= asunto.asunto%></td>
+	<td><%= asunto.descripcion%></td>
+	<td><%= asunto.persona_atendio_id%></td>
+	<td><%= asunto.persona_turnado_id%></td>
+	<td><%= asunto.telefono%></td>
+	<td><%= asunto.observaciones%></td>
+	<td><%= asunto.fechaultcont%></td>
+	<td><%= asunto.fechasigcont%></td>
+	<td><%= asunto.status_id%></td>
+	<td><%= asunto.audienciapub%></td>
+	<td><%= asunto.gober%></td>
+	-->
+	
+    <td class="actions">
+<%= link_to image_tag("icons/001_38.png", {:alt => "Visualizar asunto", :size => "16x16"}), asunto %>
+<%= link_to image_tag("icons/001_45.png", {:alt => "Editar asunto", :size => "16x16"}), edit_asunto_path(asunto) %>
+<%= link_to image_tag("icons/printer.png", {:alt => "Imprimir asunto", :size => "16x16"}), asunto_path(asunto)+".pdf",:target => "_blank" %>
+<%= link_to image_tag("icons/001_05.png", {:alt => "Borrar asunto", :size => "16x16"}), asunto, :confirm => 'Está seguro?', :method => :delete %>
+</td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate(@asuntos, :previous_label => "< Anterior", :next_label => "Siguiente >", :class => "flickr_pagination") %>
+<% else %>
+<b> No se encontraron asuntos pendientes </b>
+<% end %>
