@@ -12,8 +12,8 @@ class DashboardController < ApplicationController
     usuarios = Array.new(current_user.users)
     usuarios.push(current_user)
     asuntoparams = Asunto.create(params[:asunto])
-    conditions = ["fecha LIKE ? and nombresolicitante LIKE ? and organizacion LIKE ? and persona_turnado_id in (?)", 
-      "%#{asuntoparams.fecha}%", "%#{asuntoparams.nombresolicitante}%","%#{asuntoparams.organizacion}%", usuarios]
+    conditions = ["fecha LIKE ? and nombresolicitante LIKE ? and organizacion LIKE ? and prioridad_id like ? and persona_turnado_id in (?) and status_id <> ?", 
+      "%#{asuntoparams.fecha}%", "%#{asuntoparams.nombresolicitante}%","%#{asuntoparams.organizacion}%","%#{asuntoparams.prioridad_id}%", usuarios, configatron.status_terminado]
                
    
    

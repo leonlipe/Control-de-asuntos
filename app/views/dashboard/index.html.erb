@@ -9,34 +9,38 @@
 	    :border => 0,
 	    :id => "spinner",
 	    :style =>"display: none;" ) %>
-    </p>
-	
-	<% form_for( :asunto, :html => { :id => "datosAsunto"}) do | form | %>
-	<table class="index">
+	        </p>
+	<% form_for( :asunto,:html => { :id => "datosAsunto"}) do | form | %>
+	<table class="clInlineForm">
+	<tr>
+		<td>
+		<%= label_tag :asunto_fecha ,"Fecha"%>
+	    <%= text_field :asunto, :fecha %>
+	    </td>
+	    <td> 
+	    <%=  label_tag "Prioridad"%>
+        <%= select_tag "asunto[prioridad_id]","<option value="">--- Todos ---</option>" +  options_from_collection_for_select(Prioridad.all.collect, "id", "tipo") %>
 
-	  <tr>
-		<td>	<%= text_field :asunto, :fecha  %>
-			 </td>
-		<td> 	
-		 </td>
-		<td> <%= text_field :asunto, :nombresolicitante %>
-		 </td>
-		<td> <%= text_field :asunto, :organizacion%>
-		 </td>
-		<td>  </td>	
-
+	    </td>
+	    <td>
+        <%= label_tag :asunto_nombresolicitante,"Nombre"%>
+		<%= text_field :asunto, :nombresolicitante  %>
+		</td>
+		<td>
+		<%= label_tag :asunto_organizacion, "Organizacion"%>
+		<%= text_field :asunto, :organizacion %>
+		</td>
+	   </tr>
+	   </table>
+      
     <% end%>
-</table>
+ 
  <%= observe_form 'datosAsunto',  :frequency => 1,
     :update => 'table',
     :before => "$('#spinner').show()",
     :success => "$('#spinner').hide()",
-    :url => {:action => 'index'}
-   
- %>
+    :url => {:action => 'index'}%>
  
-  
-
 			<div id="table">
 			<%= render :partial => "items_list" %>
 			</div>

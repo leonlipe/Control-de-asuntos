@@ -100,10 +100,9 @@ class AsuntosController < ApplicationController
       end
     end
     end
-  end
    else
        redirect_to(root_path,:notice => 'No se tienen permisos.')
-    
+end    
   end
 
   # DELETE /asuntos/1

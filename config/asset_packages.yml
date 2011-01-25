@@ -4,7 +4,6 @@
       - jquery
       - jquery-ui
       - jrails
-      - prototype
       - effects
       - dragdrop
       - controls
@@ -15,3 +14,5 @@
     - base: 
       - estilo
       - forms
+      - jquery-ui-1.8.9.custom
+      
