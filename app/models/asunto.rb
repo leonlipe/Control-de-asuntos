@@ -8,7 +8,7 @@ class Asunto < ActiveRecord::Base
   belongs_to :persona_atendio, :class_name => "user"
   belongs_to :persona_turnado, :class_name => "user"
   belongs_to :status
-  has_many :comentarios
+  has_many :comentarios , :order => 'created_at DESC'
   has_many :cambios
   has_many :asuntos
   has_many :movimientos
@@ -20,6 +20,7 @@ class Asunto < ActiveRecord::Base
   validates_presence_of :nombresolicitante, :message => 'El nombre de solicitante es obligatorio'
   validates_presence_of :asunto, :message => 'El asunto es obligatorio'
   validates_presence_of :descripcion, :message => 'La descripcion del asunto es obligatorio'
+  validates_presence_of :telefono, :message => 'El telefono es olbigatorio'
   
   Max_Attachments = 5
   Max_Attachment_Size = 3.megabyte

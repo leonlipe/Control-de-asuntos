@@ -17,6 +17,8 @@ module UsersHelper
     end
   end
 
+ 
+
   #
   # Link to user's page ('users/1')
   #

@@ -18,18 +18,10 @@ class ReporteController < ApplicationController
     elsif params[:reporte] == "3" # Reporte de cambios de estado de asuntos
       @movimientos = Movimiento.all(:conditions => ["asunto_id = ?",params[:asunto]], :order => "created_at")
      elsif params[:reporte] == "4" # Reporte multicosas
-       if  params[:nombresolicitante].nil? or params[:nombresolicitante] == ''  
-         params[:nombresolicitante] = "%"
-         end
-          if  params[:organizacion].nil?   or params[:organizacion] == ''  
-            params[:organizacion] = "%"
-            end
-             if  params[:asunto].nil?   or params[:asunto] == ''  
-                params[:asunto] = "%"
-                end
+      
       @asuntos = Asunto.paginate(:page => params[:page], :per_page => 5,:conditions =>
-       ["nombresolicitante like ? and organizacion like ? and asunto like ? and prioridad_id = ? and categoria_id = ? and status_id = ?", 
-         params[:nombresolicitante], params[:organizacion], params[:asunto], params[:prioridad], params[:categoria], params[:status] ])
+       ["nombresolicitante like ? and organizacion like ? and asunto like ? and prioridad_id like ? and categoria_id like ? and status_id like ?", 
+         "%#{params[:nombresolicitante]}%", "%#{params[:organizacion]}%", "%#{params[:asunto]}%", "%#{params[:prioridad]}%", "%#{params[:categoria]}%", "%#{params[:status]}%" ])
     end     
   end
 

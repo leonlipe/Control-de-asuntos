@@ -5,12 +5,13 @@ class AsuntosController < ApplicationController
   # GET /asuntos.xml
   def index
     #@asuntos = Asunto.all
-    @asuntos = Asunto.paginate(:page => params[:page], :per_page => 5)
+    #@asuntos = Asunto.paginate(:page => params[:page], :per_page => 5)
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @asuntos }
-    end
+    #respond_to do |format|
+    #  format.html # index.html.erb
+    #  format.xml  { render :xml => @asuntos }
+    #end
+    redirect_to root_path
   end
 
   # GET /asuntos/1
@@ -40,8 +41,13 @@ class AsuntosController < ApplicationController
 
   # GET /asuntos/1/edit
   def edit
-    @asunto = Asunto.find(params[:id])
-    @allowed = Asunto::Max_Attachments - @asunto.adjuntos.count
+    if current_user.has_role?(:admin)
+      @asunto = Asunto.find(params[:id])
+      @allowed = Asunto::Max_Attachments - @asunto.adjuntos.count
+    else
+       redirect_to(root_path,:notice => 'No se tienen permisos.')
+      
+    end
   end
 
   # POST /asuntos
@@ -71,6 +77,8 @@ class AsuntosController < ApplicationController
   # PUT /asuntos/1
   # PUT /asuntos/1.xml
   def update
+    if current_user.has_role?(:admin)
+    
     @asunto = Asunto.find(params[:id])
     
     process_file_uploads(@asunto)
@@ -93,10 +101,16 @@ class AsuntosController < ApplicationController
     end
     end
   end
+   else
+       redirect_to(root_path,:notice => 'No se tienen permisos.')
+    
+  end
 
   # DELETE /asuntos/1
   # DELETE /asuntos/1.xml
   def destroy
+    if current_user.has_role?(:admin)
+    
     @asunto = Asunto.find(params[:id])
     @asunto.destroy
 
@@ -104,6 +118,9 @@ class AsuntosController < ApplicationController
       format.html { redirect_to(asuntos_url) }
       format.xml  { head :ok }
     end
+  end
+     else
+         redirect_to(root_path,:notice => 'No se tienen permisos.')
   end
   
   # GET /asuntos/turnar/1/edit

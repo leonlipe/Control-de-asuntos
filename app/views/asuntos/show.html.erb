@@ -1,7 +1,7 @@
 <%= render :partial => "shared/pendientes"%>
 <h2 class="title">Detalle del asunto </h2>
 <%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), root_path %>
-<%= link_to image_tag("icons/001_45.png", {:alt => "Editar", :size => "24x24"}), edit_asunto_path(@asunto) %> 
+<%= link_to image_tag("icons/001_45.png", {:alt => "Editar", :size => "24x24"}), edit_asunto_path(@asunto) if current_user.has_role?(:admin)%> 
 <div class="entry">
 <%= render :partial => "asuntoformshow" %>
 
