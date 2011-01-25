@@ -8,8 +8,7 @@
       - dragdrop
       - controls
       - application
-    - secondary:
-      - multifileup
+      - jquery.form
     stylesheets: 
     - base: 
       - estilo
