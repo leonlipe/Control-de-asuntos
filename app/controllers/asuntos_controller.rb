@@ -117,9 +117,9 @@ end
       format.html { redirect_to(asuntos_url) }
       format.xml  { head :ok }
     end
-  end
      else
          redirect_to(root_path,:notice => 'No se tienen permisos.')
+    end
   end
   
   # GET /asuntos/turnar/1/edit
@@ -158,12 +158,9 @@ end
     end
     
     def process_file_uploads(task)
-        i = 0
-        if !(params[:attachment].nil?)
-        while params[:attachment]['file_'+i.to_s] != "" && !params[:attachment]['file_'+i.to_s].nil?
-            task.adjuntos.build(:adjunto => params[:attachment]['file_'+i.to_s])
-            i += 1
-        end
+      if !(params[:archivo].nil?)
+        logger.info params[:archivo].size
+        params[:archivo].each {|arch|  task.adjuntos.build(:adjunto => arch)}
       end
     end
   

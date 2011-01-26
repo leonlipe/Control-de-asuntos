@@ -4,14 +4,11 @@
       - jquery
       - jquery-ui
       - jrails
-      - effects
-      - dragdrop
-      - controls
-      - application
       - jquery.form
+      - jquery.MultiFile.pack
+      - application
     stylesheets: 
     - base: 
       - estilo
       - forms
       - jquery-ui-1.8.9.custom
-      
