@@ -1,4 +1,10 @@
-
+<script>
+	$(function() {
+		$( "#asunto_fecha" ).datepicker();
+		$( "#asunto_fechaultcont" ).datepicker();
+		$( "#asunto_fechasigcont" ).datepicker();
+	});
+</script>
 <p>
 <% form_for(@asunto , :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
@@ -8,7 +14,8 @@
 
     <p>
     <%=  f.label :fecha %>
-    <%=  f.date_select(:fecha) %>
+    <%=  f.text_field(:fecha ,:size => "50", :class => "clTextInput") %>
+
     </p>
 	
     <p>
@@ -68,12 +75,12 @@
 	    
     <p>
 	<%=  f.label :fechaultcont , "Fecha del ultimo contacto"%>    
-	<%=   f.date_select(:fechaultcont) %>
+    <%=  f.text_field(:fechaultcont ,:size => "50", :class => "clTextInput") %>
 	</p>
 	
     <p>
 	<%=  f.label :fechasigcont , "Fecha del siguiente contacto"%>    
-	<%=   f.date_select (:fechasigcont)%>
+    <%=  f.text_field(:fechasigcont ,:size => "50", :class => "clTextInput") %>
 	</p>
 	
     <p>
