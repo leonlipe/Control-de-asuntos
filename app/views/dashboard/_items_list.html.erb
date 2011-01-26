@@ -43,10 +43,10 @@
 	-->
 	
     <td class="actions">
-<%= link_to image_tag("icons/001_38.png", {:alt => "Visualizar asunto", :size => "16x16"}), asunto %>
-<%= link_to image_tag("icons/001_45.png", {:alt => "Editar asunto", :size => "16x16"}), edit_asunto_path(asunto) if current_user.has_role?(:admin)%>
-<%= link_to image_tag("icons/printer.png", {:alt => "Imprimir asunto", :size => "16x16"}), asunto_path(asunto)+".pdf",:target => "_blank" %>
-<%= link_to (image_tag("icons/001_05.png", {:alt => "Borrar asunto", :size => "16x16"}), asunto, :confirm => 'Está seguro?', :method => :delete) if current_user.has_role?(:admin) %>
+<%= link_to image_tag("icons/001_38.png", {:alt => "Visualizar asunto", :size => "16x16"}), asunto if pertenece_a_mi_o_subordinados?(current_user, regresa_subordinados(current_user.id), asunto.persona_turnado_id) %>
+<%= link_to image_tag("icons/001_45.png", {:alt => "Editar asunto", :size => "16x16"}), edit_asunto_path(asunto) if current_user.has_role?(:admin) or pertenece_a_mi_o_subordinados?(current_user, regresa_subordinados(current_user.id), asunto.persona_turnado_id)%>
+<%= link_to image_tag("icons/printer.png", {:alt => "Imprimir asunto", :size => "16x16"}), asunto_path(asunto)+".pdf",:target => "_blank" if pertenece_a_mi_o_subordinados?(current_user, regresa_subordinados(current_user.id), asunto.persona_turnado_id) %>
+<%= link_to (image_tag("icons/001_05.png", {:alt => "Borrar asunto", :size => "16x16"}), asunto, :confirm => 'Está seguro?', :method => :delete) if current_user.has_role?(:admin) or pertenece_a_mi_o_subordinados?(current_user, regresa_subordinados(current_user.id), asunto.persona_turnado_id)%>
 </td>
   </tr>
 <% end %>

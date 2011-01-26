@@ -4,6 +4,7 @@
 class ApplicationController < ActionController::Base
   has_mobile_fu
   include AuthenticatedSystem
+  include AsuntosLib
   include RoleRequirementSystem
   
   helper :all # include all helpers, all the time
@@ -19,14 +20,20 @@ class ApplicationController < ActionController::Base
   
   def consulta_pendientes
     if (!current_user.nil?)
-      usuarios = Array.new(current_user.users)
-      usuarios.push(current_user)
-      @asuntosparavencer = Asunto.all(:conditions => ["fechasigcont >= ? and fechasigcont <= ? and status_id <> ? and persona_turnado_id in (?)",
-       (Time.now.midnight-1),(Time.now.midnight+2.day),configatron.status_terminado,usuarios])
-      @asuntosvencidos = Asunto.all(:conditions => ["fechasigcont <= ? and status_id <> ? and persona_turnado_id in (?)",Time.now.midnight-1,configatron.status_terminado,usuarios ])    
+    @asuntosvencidos = Asunto.all(:conditions => ["fechasigcont <= ? and status_id <> ? and persona_turnado_id in (?)",Time.now.midnight-1,configatron.status_terminado,regresa_subordinados(current_user.id) ])    
     end
   end
   
- 
+  def pertenece_a_mi?(usuario, usuario_propietario_id)
+  usuarios = Array.new
+  usuario.users.each do | user|
+    usuarios.push(user.id)
+  end
+  return true if usuarios.include?(usuario_propietario_id) or usuario.id == usuario_propietario_id or usuario.has_role?(:admin)
+  end
+  
+def pertenece_a_mi_o_subordinados?(usuario, subordinados, usuario_propietario_id)
+  return true if subordinados.include?(usuario_propietario_id) or usuario.has_role?(:admin)
+  end
   
 end

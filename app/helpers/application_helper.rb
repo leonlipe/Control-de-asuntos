@@ -1,5 +1,6 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  include AsuntosLib
 
 # Yield the content for a given block. If the block yiels nothing, the optionally specified default text is shown.
   #
@@ -109,5 +110,12 @@ resultado
        }
        link_to_remote(text, options, html_options)
      end
+     
+ 
+  
+  def pertenece_a_mi_o_subordinados?(usuario, subordinados, usuario_propietario_id)
+  return true if subordinados.include?(usuario_propietario_id) or usuario.has_role?(:admin)
+  end
+ 
 
 end

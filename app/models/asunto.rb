@@ -5,8 +5,8 @@ class Asunto < ActiveRecord::Base
   # Relaciones
   belongs_to :prioridad
   belongs_to :categoria
-  belongs_to :persona_atendio, :class_name => "user"
-  belongs_to :persona_turnado, :class_name => "user"
+  belongs_to :persona_atendio, :class_name => "User"
+  belongs_to :persona_turnado, :class_name => "User"
   belongs_to :status
   has_many :comentarios , :order => 'created_at DESC'
   has_many :cambios
