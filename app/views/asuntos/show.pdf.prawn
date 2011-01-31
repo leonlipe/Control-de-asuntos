@@ -26,3 +26,8 @@ pdf.move_down(5)
 pdf.text "Fecha del siguiente contacto: #{@asunto.fechasigcont}", :spacing => 16
 pdf.move_down(5)
 pdf.text "Status: #{@asunto.status.tipo}", :spacing => 16
+pdf.move_down(10)
+pdf.text "Comentarios", :spacing => 16
+@asunto.comentarios.each do |comentario|
+pdf.text "#{comentario.user.name} en #{comentario.created_at.to_s(:short)} dijo:  #{comentario.comentario}", :spacing => 16
+end
