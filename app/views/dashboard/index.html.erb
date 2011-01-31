@@ -1,3 +1,10 @@
+<script type="text/javascript">
+		//ajax search
+		$('.pagination a').live('click',function (){  
+	            $.getScript(this.href);  
+	            return false;  
+	    });
+</script>
 	<h2 class="title">Asuntos para <%= current_user.name %> </h2>
 	<div style="clear: both;">&nbsp;</div>
 	<div class="entry">	

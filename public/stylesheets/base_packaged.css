@@ -42,7 +42,8 @@ a {text-decoration:none; color:#fff;}
 #pie li {list-style: none; display: block; float:left; font-size:9px; font-family:Arial, Tahoma, Verdana; color: #666666; padding: 2px 7px; border-right: 1px solid; border-right-color: #999999; font-weight: lighter; text-align: center}
 #pie a{ color:#999999}
 #pie a:hover{ color:#1975C5}
-#informacion {float:left; width: 575px; padding:35px 0; text-align: left; padding-left: 40px; color: #666666; line-height: 18px; font-size: 11px}
+#informacion {float:left; width: 950px; padding:35px 0; text-align: left; padding-left: 40px; color: #666666; line-height: 18px; font-size: 11px}
+#informacion2 {float:left; width: 557px; padding:35px 0; text-align: left; padding-left: 40px; color: #666666; line-height: 18px; font-size: 11px}
 #informacion ul.oferta {margin: 10px 0px}
 #informacion ul.oferta li{ list-style:none; color:#666; display: block; padding: 7px; padding-left: 25px; background:url(../images/img/li3.jpg) left no-repeat ; font-size:16px; letter-spacing: 0.05em; border:1px solid; border-color:#CCCCCC; margin-bottom:10px; font-weight:lighter}
 #informacion ul.oferta li:hover{ background:url(../images/img/li2.png) left no-repeat #F5F5F5 ; color:#0F3C65}
@@ -143,6 +144,16 @@ tfoot.indexcomment th, tfoot.indexcomment td {font-size: 85%}
 .flickr_pagination .prev_page, .flickr_pagination .next_page {border-width: 2px}
 .flickr_pagination .prev_page {margin-right: 1em}
 .flickr_pagination .next_page {margin-left: 1em}
+.pagination {text-align: center; padding: .3em}
+.pagination a, .pagination span, .digg_pagination em {padding: .2em .5em}
+.pagination span.disabled {color: #AAA}
+.pagination em {font-weight: bold; color: #FF0084}
+.pagination a {border: 1px solid #DDDDDD; color: #0063DC; text-decoration: none}
+.pagination a:hover, .pagination a:focus {border-color: #003366; background: #0063DC; color: white}
+.pagination .page_info {color: #aaa; padding-top: .8em}
+.pagination .prev_page, .pagination .next_page {border-width: 2px}
+.pagination .prev_page {margin-right: 1em}
+.pagination .next_page {margin-left: 1em}
 #attachment_list #pending_files{ list-style:none;padding:0}
 #attachment_list li {padding:0 0 0.5em 21px;background:url('/images/attachment.png') no-repeat 0 2px}
 #attachment_list li #remove {margin-left:1em}

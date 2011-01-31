@@ -2,6 +2,8 @@ class ReporteController < ApplicationController
   require_role :user
   
   def index
+    render :layout => "lreporte"
+    
   end
   
   def usuarios
