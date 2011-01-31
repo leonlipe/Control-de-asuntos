@@ -6,6 +6,9 @@ module AuthenticatedSystem
       !!current_user
     end
 
+
+
+
     # Accesses the current user from the session.
     # Future calls avoid the database because nil is not equal to false.
     def current_user
@@ -17,6 +20,8 @@ module AuthenticatedSystem
       session[:user_id] = new_user ? new_user.id : nil
       @current_user = new_user || false
     end
+
+  
 
     # Check if the user is authorized
     #

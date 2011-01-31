@@ -5,35 +5,7 @@
     </tr>
 	<tr>
       <td>
-<p>
-  Asuntos pendientes a vencer en la fecha del siguiente contacto
-</p>
 
-<% if !@asuntosparavencer.empty? %>
-<ul>
-	<% @asuntosparavencer.each do |asunto| %>
-	  
-	    <li>
-		<%=asunto.fechasigcont	%> 
-		|
-	    
-        <%=asunto.prioridad.tipo %>		
-		|
-		
-        <%= link_to "ver" ,asunto %>		
-		</li>
-	  	
-	<% end %>
-	
-	</ul>
-	
-	<% else%>
-	<ul>
-		<li>
-	<b>	No se encontraron asuntos próximos a vencer</b>
-		</li>
-	</ul>
-	<% end%>
 		
 	<p>
 	  Asuntos vencidos a la fecha de hoy
