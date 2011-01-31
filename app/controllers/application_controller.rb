@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
-  before_filter :consulta_pendientes
+  #before_filter :consulta_pendientes
   
   private
   
