@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title><%= configatron.site_name %></title>
+<%= stylesheet_link_merged :base %>
+<%= javascript_include_merged :base %>
+
+</head>
+
+<body>
+<div>
+<div id="contenedor">
+<div id="fca_top">
+  <%= render :partial => "shared/global_links" %>
+  </div>
+
+<div id="banner">
+	<%= image_tag("img/banner.jpg", {:alt => "Logo"})%>
+</div>
+</div>
+</div>
+<div class="arrriba">
+<div id="contenedor">
+<div id="menu">
+  <%= render :partial => "shared/tabs" %>
+</div>
+<div class="columnas">  
+<div id="informacion2"><!-- InstanceBeginEditable name="informacion" -->
+ <%= yield %>
+  <!-- InstanceEndEditable --></div>
+<div id="menu_lateral">
+  <%= yield :sidebar%>
+</div>
+</div>
+<div id="pie">
+	<%= render :partial => "shared/footer"%>
+
+  </div>
+  </div>
+</div>
+
+</body>
+<!-- InstanceEnd --></html>
