@@ -50,7 +50,7 @@
   </tr>
 <% end %>
 </table>
-<%= will_paginate ( @asuntos, { :params => { :asunto => params[:asunto] } ,:previous_label => "< Anterior", :next_label => "Siguiente >" }) %>
+<%= will_paginate ( @asuntos,{ :params => { :asunto => params[:asunto] } ,:previous_label => "< Anterior", :next_label => "Siguiente >" }) %>
 <% else %>
 <b> No se encontraron asuntos pendientes </b>
 <% end %>

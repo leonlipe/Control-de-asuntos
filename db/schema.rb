@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110115180816) do
+ActiveRecord::Schema.define(:version => 20110202221825) do
 
   create_table "adjuntos", :force => true do |t|
     t.string   "adjunto_file_name"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(:version => 20110115180816) do
     t.integer  "persona_turnado_id"
     t.integer  "status_id"
   end
+
+  add_index "asuntos", ["nombresolicitante"], :name => "idxnomsoli", :unique => true
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"

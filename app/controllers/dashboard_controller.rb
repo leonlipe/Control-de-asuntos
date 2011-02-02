@@ -11,7 +11,7 @@ class DashboardController < ApplicationController
                
    
     @asunto = Asunto.create(params[:asunto])
-    conditions = ["fecha LIKE ? and nombresolicitante LIKE ? and organizacion LIKE ? and status_id LIKE ? and persona_turnado_id LIKE ? and fechasigcont LIKE ?", 
+    conditions = ["(fecha LIKE ? or fecha is null) and (nombresolicitante LIKE ? or nombresolicitante is null) and (organizacion LIKE ? or organizacion is null) and (status_id LIKE ? or status_id is null) and persona_turnado_id LIKE ? and (fechasigcont LIKE ? or fechasigcont is null)", 
       "%#{@asunto.fecha}%", "%#{@asunto.nombresolicitante}%","%#{@asunto.organizacion}%","%#{@asunto.status_id}%",  "%#{@asunto.persona_turnado_id}%","%#{@asunto.fechasigcont}%"]
                
    

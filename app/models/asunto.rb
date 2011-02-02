@@ -1,4 +1,5 @@
 class Asunto < ActiveRecord::Base
+  include Trimmer
   acts_as_audited
   # Restricciones
   
@@ -21,6 +22,10 @@ class Asunto < ActiveRecord::Base
   validates_presence_of :asunto, :message => 'El asunto es obligatorio'
   validates_presence_of :descripcion, :message => 'La descripcion del asunto es obligatorio'
   validates_presence_of :telefono, :message => 'El telefono es olbigatorio'
+  
+  validates_uniqueness_of :nombresolicitante
+  
+  trimmed_fields :nombresolicitante
   
   Max_Attachments = 5
   Max_Attachment_Size = 3.megabyte
