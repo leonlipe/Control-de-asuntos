@@ -26,12 +26,12 @@
 		</td>			
 	    <td> 
 	    <%=  label_tag "Status"%>
-        <%= select_tag "asunto[status_id]","<option value="">--- Todos ---</option>" +  options_from_collection_for_select(Status.all.collect, "id", "tipo") %>
+        <%= select_tag "asunto[status_id]","<option value="">--- Todos ---</option>" +  options_from_collection_for_select(Status.all.collect, "id", "tipo",(  params[:asunto][:status_id].to_i if !params[:asunto].nil?)) %>
 
 	    </td>
 	   	 <td> 
 		    <%=  label_tag "Turnado a"%>
-	        <%= select_tag "asunto[persona_turnado_id]","<option value="">--- Todos ---</option>" +  options_from_collection_for_select(User.all.collect, "id", "name") %>
+	        <%= select_tag "asunto[persona_turnado_id]","<option value="">--- Todos ---</option>" +  options_from_collection_for_select(User.all.collect, "id", "name", (params[:asunto][:persona_turnado_id].to_i if !params[:asunto].nil? )) %>
 
 		    </td>
 				<td>

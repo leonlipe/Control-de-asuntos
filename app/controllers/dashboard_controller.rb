@@ -10,9 +10,9 @@ class DashboardController < ApplicationController
                end
                
    
-    asuntoparams = Asunto.create(params[:asunto])
+    @asunto = Asunto.create(params[:asunto])
     conditions = ["fecha LIKE ? and nombresolicitante LIKE ? and organizacion LIKE ? and status_id LIKE ? and persona_turnado_id LIKE ? and fechasigcont LIKE ?", 
-      "%#{asuntoparams.fecha}%", "%#{asuntoparams.nombresolicitante}%","%#{asuntoparams.organizacion}%","%#{asuntoparams.status_id}%",  "%#{asuntoparams.persona_turnado_id}%","%#{asuntoparams.fechasigcont}%"]
+      "%#{@asunto.fecha}%", "%#{@asunto.nombresolicitante}%","%#{@asunto.organizacion}%","%#{@asunto.status_id}%",  "%#{@asunto.persona_turnado_id}%","%#{@asunto.fechasigcont}%"]
                
    
     @asuntos = Asunto.paginate(:page => params[:page], :per_page => 10,:order => sort, :conditions => conditions)
