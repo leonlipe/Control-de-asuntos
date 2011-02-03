@@ -23,7 +23,7 @@ class Asunto < ActiveRecord::Base
   validates_presence_of :descripcion, :message => 'La descripcion del asunto es obligatorio'
   validates_presence_of :telefono, :message => 'El telefono es olbigatorio'
   
-  validates_uniqueness_of :nombresolicitante
+  validates_uniqueness_of :asunto, :scope => :nombresolicitante, :case_sensitive => false
   
   trimmed_fields :nombresolicitante
   

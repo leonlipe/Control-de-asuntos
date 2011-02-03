@@ -22,7 +22,7 @@ class ReporteController < ApplicationController
      elsif params[:reporte] == "4" # Reporte multicosas
       
       @asuntos = Asunto.paginate(:page => params[:page], :per_page => 10,:conditions =>
-       ["(nombresolicitante like ? or nombresolicitante is null) and (organizacion like ? or organizacion is null) and (asunto like ? or asunto is null) and prioridad_id like ? and (categoria_id like ? or categoria_id is null) and (status_id like ? or status_id is null)", 
+       ["(upper(nombresolicitante) like upper(?) or nombresolicitante is null) and (upper(organizacion) like upper(?) or organizacion is null) and (upper(asunto) like upper(?) or asunto is null) and prioridad_id like ? and (categoria_id like ? or categoria_id is null) and (status_id like ? or status_id is null)", 
          "%#{params[:nombresolicitante]}%", "%#{params[:organizacion]}%", "%#{params[:asunto]}%", "%#{params[:prioridad]}%", "%#{params[:categoria]}%", "%#{params[:status]}%" ])
     end     
   end

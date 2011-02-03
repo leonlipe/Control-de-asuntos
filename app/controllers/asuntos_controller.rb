@@ -18,7 +18,7 @@ class AsuntosController < ApplicationController
   # GET /asuntos/1.xml
   def show
     @asunto = Asunto.find(params[:id])
-  if pertenece_a_mi_o_subordinados?(current_user,regresa_subordinados(current_user.id), @asunto.persona_turnado_id)
+  #if pertenece_a_mi_o_subordinados?(current_user,regresa_subordinados(current_user.id), @asunto.persona_turnado_id)
     
     respond_to do |format|
       format.html # show.html.erb
@@ -26,9 +26,9 @@ class AsuntosController < ApplicationController
       format.pdf  { render :layout => false }
       
     end
-    else 
-           redirect_to(root_path,:notice => 'No se tienen permisos.')
-    end
+   # else 
+  #       redirect_to(root_path,:notice => 'No se tienen permisos.')
+  #  end
 
   end
 

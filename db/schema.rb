@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20110202221825) do
     t.integer  "status_id"
   end
 
-  add_index "asuntos", ["nombresolicitante"], :name => "idxnomsoli", :unique => true
+  add_index "asuntos", ["nombresolicitante", "asunto"], :name => "idxnomsoli", :unique => true
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
