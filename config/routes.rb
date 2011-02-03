@@ -25,6 +25,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/historial/detail/:id', :controller => 'historial', :action => 'detail'
   map.mail  '/mail',  :controller => 'correo', :action => 'mailDeneme'
   
+  map.connect '/asuntos/xls/:id.xls', :controller => 'asuntos', :action => 'toxls'
   
  
   
