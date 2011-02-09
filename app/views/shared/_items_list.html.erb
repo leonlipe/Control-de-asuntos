@@ -3,11 +3,11 @@
 
   <tr>
 	<th <%= sort_td_class_helper "fecha" %>>  <%= sort_link_helper "Fecha", "fecha" %> </th>
-	<th> Nombre </th>
-	<th> Organizacion </th>
-	<th> Status </th>
-	<th> Turnado a </th>
-	<th> Fecha siguiente contacto </th>
+	<th<%= sort_td_class_helper "nombre" %>> <%= sort_link_helper "Nombre", "nombre" %> </th>
+	<th<%= sort_td_class_helper "organizacion" %>> <%= sort_link_helper "Organizacion", "organizacion" %> </th>
+	<th<%= sort_td_class_helper "status" %>> <%= sort_link_helper "Status", "status" %> </th>
+	<th<%= sort_td_class_helper "turnadoa" %>> <%= sort_link_helper "Turnado a", "turnadoa" %> </th>
+	<th<%= sort_td_class_helper "fechasigcont" %>> <%= sort_link_helper "Fecha siguiente contacto", "fchasigcont" %> </th>
 	<th>  </th>
 	<!--<th> Asunto </th>
 	<th> Prioridad </th>

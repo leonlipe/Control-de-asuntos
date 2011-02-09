@@ -6,8 +6,18 @@ class DashboardController < ApplicationController
   def index
     sort = case params['sort']
               when "fecha"  then "fecha"
+              when "nombre"  then "nombresolicitante"
+              when "organizacion"  then "organizacion"
+              when "status"  then "status_id"
+              when "turnadoa"  then "persona_turnado_id"
+              when "fechasigcont"  then "fechasigcont"
             
               when "fecha_reverse"  then "fecha DESC"
+              when "nombre_reverse"  then "nombresolicitante"
+              when "organizacion_reverse"  then "organizacion"
+              when "status_reverse"  then "status_id"
+              when "turnadoa_reverse"  then "persona_turnado_id"
+              when "fechasigcont_reverse"  then "fechasigcont"
            
               end
                

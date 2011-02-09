@@ -20,6 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   map.reporte '/reporte/usuarios', :controller => 'reporte', :action => 'usuarios'
   map.reporte '/reporte/multi', :controller => 'reporte', :action => 'multi'
   map.reporte '/reporte/multi/ver', :controller => 'reporte', :action => 'ver'
+  map.reporte '/reporte/multi/ver.xls', :controller => 'reporte', :action => 'verxls'
   map.reporte '/reporte/usuarios/ver', :controller => 'reporte', :action => 'ver'
   map.reporte '/reporte/usuarios/all', :controller => 'reporte', :action => 'usuariostodos'
   map.connect '/historial/detail/:id', :controller => 'historial', :action => 'detail'
