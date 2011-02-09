@@ -43,28 +43,29 @@ class ReporteController < ApplicationController
   
   def verxls
    e = Excel::Workbook.new
+   #asuntos = @asuntos 
       asuntos = Asunto.all(:conditions =>
        ["(upper(nombresolicitante) like upper(?) or nombresolicitante is null) and (upper(organizacion) like upper(?) or organizacion is null) and (upper(asunto) like upper(?) or asunto is null) and prioridad_id like ? and (categoria_id like ? or categoria_id is null) and (status_id like ? or status_id is null)", 
          "%#{params[:nombresolicitante]}%", "%#{params[:organizacion]}%", "%#{params[:asunto]}%", "%#{params[:prioridad]}%", "%#{params[:categoria]}%", "%#{params[:status]}%" ])
        array = Array.new
           for asunto in asuntos
             item = Hash.new
-            item["Fecha"] = asunto.fecha
-            item["Nombre del solicitanet"] = asunto.nombresolicitante
-            item["Organizacion"] = asunto.organizacion
-            item["Asunto"] = asunto.asunto
-            item["Descripcion"] = asunto.descripcion
-            item["Telefono"] = asunto.telefono
-            item["Observaciones"] = asunto.observaciones
-            item["Atendido por"] = asunto.personaatendio
-            item["Turnado a"] = asunto.personaturnado
-            item["Prioridad"] = asunto.prioridaddesc
-            item["Categoria"] = asunto.categoriadesc
-            item["Fecha del ultimo contacto"] = asunto.fechaultcont
-            item["Fecha del siguiente contacto"] = asunto.fechasigcont
-            item["Status"] = asunto.status.tipo
-            item["Audiencia publica"] =  (asunto.audienciapub ? "SI": "NO")
-            item["CC Gobernador"] =  (asunto.gober ? "SI": "NO")
+            item["Fecha"] = asunto.fecha if params[:asuntoform][:fecha] == "1"
+            item["Nombre del solicitanet"] = asunto.nombresolicitante if params[:asuntoform][:nombresolicitante] == "1"
+            item["Organizacion"] = asunto.organizacion if params[:asuntoform][:organizacion] == "1"
+            item["Asunto"] = asunto.asunto if params[:asuntoform][:asunto] == "1"
+            item["Descripcion"] = asunto.descripcion if params[:asuntoform][:descripcion] == "1"
+            item["Telefono"] = asunto.telefono if params[:asuntoform][:telefono] == "1"
+            item["Observaciones"] = asunto.observaciones if params[:asuntoform][:observaciones] == "1"
+            item["Atendido por"] = asunto.personaatendio if params[:asuntoform][:persona_atendido_id] == "1"
+            item["Turnado a"] = asunto.personaturnado if params[:asuntoform][:persona_turnado_id] == "1"
+            item["Prioridad"] = asunto.prioridaddesc if params[:asuntoform][:prioridad_id] == "1"
+            item["Categoria"] = asunto.categoriadesc if params[:asuntoform][:categoria_id] == "1"
+            item["Fecha del ultimo contacto"] = asunto.fechaultcont if params[:asuntoform][:fchaultcont] == "1"
+            item["Fecha del siguiente contacto"] = asunto.fechasigcont if params[:asuntoform][:fechasigcont] == "1"
+            item["Status"] = asunto.status.tipo if params[:asuntoform][:status_id] == "1"
+            item["Audiencia publica"] =  (asunto.audienciapub ? "SI": "NO") if params[:asuntoform][:audienciapub] == "1"
+            item["CC Gobernador"] =  (asunto.gober ? "SI": "NO") if params[:asuntoform][:gober] == "1"
             array << item
           end  
        e.addWorksheetFromArrayOfHashes "Asuntos", array

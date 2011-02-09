@@ -3,9 +3,32 @@
 <%end %>
 
 <h2>Resultados</h2>
+
+<%if params[:reporte] == "4" %>
+<% form_for (:asuntoform, :html => {:id => "formasunto"}, :url => {:action => "verxls"}) do |f| %>
+<%= hidden_field_tag :nombresolicitante, params[:nombresolicitante] %>
+<%= hidden_field_tag :organizacion, params[:organizacion] %>
+<%= hidden_field_tag :asunto, params[:asunto] %>
+<%= hidden_field_tag :prioridad, params[:prioridad].to_s  %>
+<%= hidden_field_tag :categoria, params[:categoria].to_s %>
+<%= hidden_field_tag :status, params[:status].to_s %>
+
+
 <%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), root_path %>
-<%= link_to image_tag("icons/001_38.png", {:alt => "XLS", :size => "24x24"}), '/reporte/multi/ver.xls',:target => "_blank" %>
+<%= image_submit_tag "icons/printer.png" ,:alt => "XLS", :width=>"24" ,:height=>"24"  %>
 <div style="clear: both;">&nbsp;</div>
+
+
+  <% asunto = Asunto.new %>
+
+  <% asunto.attribute_names.each do |attribute|  %>
+    <%= f.check_box  attribute.to_s, :checked => 'checked'%>
+    <%= attribute.to_s%>
+  <% end %>
+  <% end %>
+<% else %>
+  <%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), root_path %>
+<% end %>
 <div class="entry">
 	Resultados de la búsqueda
 	<% if params[:reporte] == "1" or  params[:reporte] == "4" %>
@@ -43,5 +66,7 @@
 	</table>
 	
 	<%end%>
+	
+		
 
 </div>
