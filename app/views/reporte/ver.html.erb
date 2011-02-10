@@ -14,20 +14,20 @@
 <%= hidden_field_tag :status, params[:status].to_s %>
 
 
-<%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), root_path %>
+<%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), "/reporte" %>
 <%= image_submit_tag "icons/printer.png" ,:alt => "XLS", :width=>"24" ,:height=>"24"  %>
 <div style="clear: both;">&nbsp;</div>
 
 
   <% asunto = Asunto.new %>
 
-  <% asunto.attribute_names.each do |attribute|  %>
-    <%= f.check_box  attribute.to_s, :checked => 'checked'%>
-    <%= attribute.to_s%>
+  <% asunto.attributes.each do |attribute|  %>
+    <%= f.check_box  attribute.to_s, :checked => 'checked' if !((attribute.to_s =="updated_at") or (attribute.to_s =="created_at"))%>
+    <%= attribute.to_s if !((attribute.to_s =="updated_at") or (attribute.to_s =="created_at"))%>
   <% end %>
   <% end %>
 <% else %>
-  <%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), root_path %>
+  <%= link_to image_tag("icons/001_59.png", {:alt => "Atrás", :size => "24x24"}), "/reporte" %>
 <% end %>
 <div class="entry">
 	Resultados de la búsqueda

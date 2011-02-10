@@ -27,7 +27,7 @@ class DashboardController < ApplicationController
       "%#{@asunto.fecha}%", "%#{@asunto.nombresolicitante}%","%#{@asunto.organizacion}%","%#{@asunto.status_id}%",  "%#{@asunto.persona_turnado_id}%","%#{@asunto.fechasigcont}%"]
                
    
-    @asuntos = Asunto.paginate(:page => params[:page], :per_page => 4,:order => sort, :conditions => conditions)
+    @asuntos = Asunto.paginate(:page => params[:page], :per_page => 10,:order => sort, :conditions => conditions)
     #:conditions => ["status_id <> ? and persona_turnado_id in (?)", configatron.status_terminado, usuarios ])
     if request.xml_http_request?
          render :partial => "shared/items_list", :layout => false
