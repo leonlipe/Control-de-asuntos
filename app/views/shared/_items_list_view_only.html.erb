@@ -48,7 +48,9 @@
   </tr>
 <% end %>
 </table>
-<%= will_paginate(@asuntos, :previous_label => "< Anterior", :next_label => "Siguiente >", :class => "flickr_pagination") %>
+
+<%= will_paginate(@asuntos, { :params => { :persona_id => params[:persona_id], :reporte => params[:reporte] },:previous_label => "< Anterior", :next_label => "Siguiente >", :class => "flickr_pagination" }) %>
+
 <% else %>
 <b> No se encontraron asuntos pendientes </b>
 <% end %>
