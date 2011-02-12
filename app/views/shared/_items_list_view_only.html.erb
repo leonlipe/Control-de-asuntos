@@ -49,7 +49,11 @@
 <% end %>
 </table>
 
+<%if (params[:reporte] == "1")%>
 <%= will_paginate(@asuntos, { :params => { :persona_id => params[:persona_id], :reporte => params[:reporte] },:previous_label => "< Anterior", :next_label => "Siguiente >", :class => "flickr_pagination" }) %>
+<%elsif (params[:reporte] == "2")%>
+<%= will_paginate(@asuntos, { :params => { :fecha_inicial => params[:fecha_inicial], :fecha_final => params[:fecha_final], :reporte => params[:reporte] },:previous_label => "< Anterior", :next_label => "Siguiente >", :class => "flickr_pagination" }) %>
+<% end%>
 
 <% else %>
 <b> No se encontraron asuntos pendientes </b>
