@@ -46,8 +46,10 @@ class AsuntosController < ApplicationController
 
   # GET /asuntos/1/edit
   def edit
-    if current_user.has_role?(:admin)
-      @asunto = Asunto.find(params[:id])
+    #if current_user.has_role?(:admin)
+   @asunto = Asunto.find(params[:id])
+
+    if pertenece_a_mi_o_subordinados?(current_user,regresa_subordinados(current_user.id), @asunto.persona_turnado_id)
       @allowed = Asunto::Max_Attachments - @asunto.adjuntos.count
     else
        redirect_to(root_path,:notice => 'No se tienen permisos.')
@@ -82,9 +84,9 @@ class AsuntosController < ApplicationController
   # PUT /asuntos/1
   # PUT /asuntos/1.xml
   def update
-    if current_user.has_role?(:admin)
-    
+    #if current_user.has_role?(:admin)
     @asunto = Asunto.find(params[:id])
+    if pertenece_a_mi_o_subordinados?(current_user,regresa_subordinados(current_user.id), @asunto.persona_turnado_id)
     
     process_file_uploads(@asunto)
     
