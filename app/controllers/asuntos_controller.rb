@@ -95,10 +95,12 @@ class AsuntosController < ApplicationController
       Asunto.transaction do 
       asunto_old = @asunto.clone
       if @asunto.update_attributes(params[:asunto])
-        actualizar_historial(@asunto, asunto_old)    
          if (configatron.envia_email)
-            UserMailer.deliver_registration_confirmation(current_user.email, "Asunto actualizado", "Se ha actualizado un asunto que necesita de su atencion, por favor verifiquelo. Asunto:"+@asunto.asunto)
+            if (@asunto.persona_turnado_id != asunto_old.persona_turnado_id)
+              UserMailer.deliver_registration_confirmation(current_user.email, "Asunto actualizado", "Se ha actualizado un asunto que necesita de su atencion, por favor verifiquelo. Asunto:"+@asunto.asunto)
+            end
           end
+        actualizar_historial(@asunto, asunto_old)    
         format.html { redirect_to(@asunto, :notice => 'Asunto was successfully updated.') }
         format.xml  { head :ok }
       else
