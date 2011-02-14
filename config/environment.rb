@@ -55,9 +55,9 @@ require "will_paginate"
 require "#{RAILS_ROOT}/app/overrides/all"
 ActionMailer::Base.smtp_settings =
 {
-    :address => "smtp.gmail.com",
-    :port => 587,
-    :domain => "gmail.com",
+    :address => "",
+    :port => 25,
+    :domain => "",
     :user_name => "",#not with @gmail.com
     :password => "",
     :authentication => :plain,
